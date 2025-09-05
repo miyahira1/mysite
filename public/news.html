@@ -7,187 +7,157 @@
     <title>Daily Briefing</title>
     <style>
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: #121212;
             color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
         }
         .container {
             max-width: 900px;
-            margin: 0 auto;
+            margin: auto;
             background-color: #1e1e1e;
             padding: 25px;
             border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
         h1, h2 {
-            color: #bb86fc;
-            border-bottom: 2px solid #373737;
+            color: #ffffff;
+            border-bottom: 2px solid #444;
             padding-bottom: 10px;
         }
         h1 {
             text-align: center;
-            font-size: 2em;
-            margin-bottom: 0;
+            margin-bottom: 5px;
         }
         .timestamp {
             text-align: center;
-            color: #a0a0a0;
-            margin-bottom: 25px;
+            color: #999;
             font-size: 0.9em;
-        }
-        .section {
             margin-bottom: 30px;
         }
-        strong {
-            color: #03dac6;
+        .card {
+            background-color: #2a2a2a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
         }
         .weather-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
+            gap: 20px;
             text-align: center;
         }
-        .weather-item {
-            background-color: #2a2a2a;
-            padding: 15px;
-            border-radius: 8px;
+        .weather-item h3 {
+            margin-top: 0;
+            color: #bb86fc;
+            font-size: 1.1em;
         }
-        .weather-item .label {
-            font-size: 0.9em;
-            color: #a0a0a0;
-        }
-        .weather-item .value {
+        .weather-item p {
             font-size: 1.5em;
+            margin: 5px 0 0 0;
             font-weight: bold;
         }
-        .alert-none {
-            color: #4caf50;
+        .positive {
+            color: #4CAF50;
+        }
+        .negative {
+            color: #F44336;
         }
         ul {
-            list-style-type: none;
-            padding: 0;
+            padding-left: 20px;
         }
         li {
-            background-color: #2a2a2a;
             margin-bottom: 10px;
-            padding: 15px;
-            border-left: 4px solid #bb86fc;
-            border-radius: 4px;
         }
-        .market-item p, .economic-item p {
-            margin: 5px 0;
+        .analysis {
+            font-style: italic;
+            color: #ccc;
+            margin-top: 8px;
+            font-size: 0.95em;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>Daily Intelligence Briefing</h1>
+        <h1>Daily Briefing</h1>
         <p class="timestamp">
-            Generated on: <span id="datetime"></span>
+            Generated on: Thursday, May 23, 2024, 11:25:18 AM GMT-03:00
         </p>
 
-        <div id="weather" class="section">
+        <div class="card">
             <h2>Today's Weather Forecast</h2>
             <div class="weather-grid">
                 <div class="weather-item">
-                    <div class="label">Max Temp</div>
-                    <div class="value">16°C</div>
+                    <h3>Max Temperature</h3>
+                    <p>18°C</p>
                 </div>
                 <div class="weather-item">
-                    <div class="label">Min Temp</div>
-                    <div class="value">9°C</div>
+                    <h3>Min Temperature</h3>
+                    <p>11°C</p>
                 </div>
                 <div class="weather-item">
-                    <div class="label">Precipitation</div>
-                    <div class="value">15%</div>
+                    <h3>Precipitation</h3>
+                    <p>5%</p>
                 </div>
                 <div class="weather-item">
-                    <div class="label">Alerts</div>
-                    <div class="value alert-none">None</div>
+                    <h3>Alerts</h3>
+                    <p>None</p>
                 </div>
             </div>
+            <p style="text-align: center; margin-top: 15px;">Clear skies in the morning becoming partly cloudy in the afternoon. Light winds from the southeast.</p>
         </div>
 
-        <div id="jpmorgan-news" class="section">
-            <h2>JP Morgan: Latest 24hs News</h2>
+        <div class="card">
+            <h2>JP Morgan: 24-Hour News Digest</h2>
             <ul>
-                <li><strong>Global Strategy:</strong> Analysts at JP Morgan have reiterated a cautious stance on US equities, citing high valuations and potential for a market pullback. They advise clients to consider diversifying into undervalued international markets.</li>
-                <li><strong>Work Culture:</strong> A recent internal memo highlighted the firm's ongoing hybrid work model evaluation, emphasizing the importance of in-office "apprenticeship and collaboration" days while maintaining flexibility. The firm continues to be a top recruiter on college campuses for finance and tech roles.</li>
-                <li><strong>Argentina Outlook:</strong> JP Morgan's latest report on Argentina noted the government's fiscal progress but highlighted upcoming challenges related to lifting currency controls ("cepo"). The bank's EMBI index, which calculates country risk, remains a key indicator for international investors.</li>
-                <li><strong>Technology Investment:</strong> The bank announced a strategic partnership with a leading AI firm to enhance its fraud detection algorithms, aiming to reduce false positives and improve security for its millions of customers worldwide.</li>
+                <li><strong>Global Strategy:</strong> Analysts at JP Morgan have upgraded their forecast for China's economic growth in 2024, citing stronger-than-expected Q1 data and supportive policy measures. This has influenced recommendations on emerging market equities.</li>
+                <li><strong>Work & Culture:</strong> The bank continues its push for a return-to-office mandate, with recent internal communications emphasizing the importance of in-person collaboration for junior staff development and overall productivity. This remains a key topic among employees on professional networks.</li>
+                <li><strong>Argentina Operations:</strong> JP Morgan's local research team highlighted Argentina's recent fiscal surplus as a positive signal for investors. However, they maintain a cautious outlook, pointing to the challenges of sustaining austerity and the need for congressional approval of key structural reforms.</li>
+                <li><strong>Market Commentary:</strong> Following Nvidia's blockbuster earnings report, JP Morgan strategists noted that the AI-driven tech rally has "more room to run," though they advise clients to remain diversified as market breadth is a growing concern.</li>
             </ul>
         </div>
 
-        <div id="argentina-economy" class="section">
-            <h2>Argentina: Dólar Blue & Riesgo País</h2>
-            <div class="economic-item">
-                <h3>Dólar Blue</h3>
-                <p><strong>Current Price:</strong> Compra: <strong>$1,225</strong> / Venta: <strong>$1,245</strong></p>
-                <p><strong>Recent Changes:</strong> The blue dollar remains stable, showing a slight decrease in the last session. The gap ("brecha") with the official dollar is currently hovering around 35%.</p>
-                <p><strong>Projections:</strong> Market analysts expect continued stability in the short term, pending new economic measures and Central Bank interventions. The upcoming aguinaldo (half-year bonus) payments could introduce temporary volatility.</p>
-            </div>
-            <div class="economic-item">
-                <h3>Riesgo País (Country Risk)</h3>
-                <p><strong>Current Value:</strong> <strong>1,289</strong> basis points</p>
-                <p><strong>Recent Changes:</strong> Argentina's country risk has shown a slight increase in recent days, reflecting investor uncertainty regarding negotiations with the IMF and the long-term sustainability of fiscal adjustments.</p>
-                <p><strong>Projections:</strong> The indicator's trajectory is heavily dependent on positive signals from the government regarding its economic program and its ability to build foreign reserves. A value below 1,200 points is seen as a key psychological target.</p>
-            </div>
-        </div>
-
-        <div id="market-updates" class="section">
-            <h2>Market Updates: $SPY, $BTC, $ETH</h2>
-            <div class="market-item">
-                <h3>$SPY (S&P 500 ETF)</h3>
-                <p><strong>Current Price:</strong> <strong>$545.80</strong> (<strong>-0.25%</strong>)</p>
-                <p><strong>Analysis:</strong> Sentiment is cautious as investors await key inflation data (PCE index) later this week. The market is trading in a tight range, with technical indicators like the RSI suggesting a neutral-to-slightly-overbought condition. Movements are primarily driven by macroeconomic expectations rather than company-specific news.</p>
-            </div>
-            <div class="market-item">
-                <h3>$BTC (Bitcoin)</h3>
-                <p><strong>Current Price:</strong> <strong>$60,950.45</strong> (<strong>-1.80%</strong>)</p>
-                <p><strong>Analysis:</strong> Bitcoin is facing downward pressure, testing the critical $60k support level. The sentiment is bearish in the short term, influenced by reports of sales from the German government and Mt. Gox wallet movements. Long-term holder metrics, however, show continued accumulation, suggesting a possible divergence between spot price and underlying strength.</p>
-            </div>
-            <div class="market-item">
-                <h3>$ETH (Ethereum)</h3>
-                <p><strong>Current Price:</strong> <strong>$3,365.20</strong> (<strong>-2.15%</strong>)</p>
-                <p><strong>Analysis:</strong> Ethereum is following Bitcoin's downward trend, further impacted by a lack of immediate catalysts following the approval of Spot ETH ETFs. Market sentiment is mixed; while the short-term price action is weak, the potential for significant institutional inflows once the ETFs begin trading provides a bullish mid-term outlook.</p>
-            </div>
-        </div>
-
-        <div id="ai-developments" class="section">
-            <h2>AI Developments: Past 24 Hours</h2>
+        <div class="card">
+            <h2>Argentine Economic Indicators</h2>
             <ul>
-                <li><strong>Perplexity Pages:</strong> AI search engine Perplexity has launched "Pages," a new feature that allows users to create and share comprehensive, well-structured articles on any topic by simply providing a prompt. The tool automatically curates information, organizes it, and adds citations.</li>
-                <li><strong>Google's Veo Expands Access:</strong> Google has expanded early access to its new text-to-video model, Veo, to select filmmakers and creators through its VideoFX platform. Early demos showcase high-quality, cinematic video generation, positioning it as a strong competitor to OpenAI's Sora.</li>
-                <li><strong>Apple & Meta AI Partnership Talks:</strong> Reports have emerged that Apple is in discussions with Meta to potentially integrate Meta's generative AI models into its "Apple Intelligence" system. This follows a similar announced partnership with OpenAI, indicating Apple's strategy to offer a range of AI models to its users.</li>
-                <li><strong>Mistral's New Coding Model:</strong> French AI startup Mistral has released "Codestral 22B," a new open-source model specialized in code generation. It supports over 80 programming languages and is designed to be more efficient and faster than larger models for coding-specific tasks.</li>
+                <li><strong>Dólar Blue:</strong> The price is currently around <strong>$1,230</strong> for purchase and <strong>$1,250</strong> for sale. This represents a slight stabilization after recent volatility, but the market remains attentive to central bank interventions and inflation data. Projections suggest continued pressure as long as currency controls ("cepo") remain in place.</li>
+                <li><strong>Riesgo País (Country Risk):</strong> The index is hovering around <strong>1,255 points</strong>. It has seen a significant decrease in recent months but has ticked up slightly this week amid political noise surrounding the "Ley Bases" debate in Congress. A successful negotiation could push the index lower, while a failure could trigger a negative reaction.</li>
             </ul>
         </div>
+
+        <div class="card">
+            <h2>Market Snapshot & Analysis</h2>
+            <ul>
+                <li>
+                    <strong>$SPY (S&P 500 ETF):</strong> $529.55 <span class="negative">(-0.25% in 24h)</span>
+                    <p class="analysis">The market is taking a breather after reaching all-time highs. Sentiment is cautiously optimistic, driven by strong tech earnings (especially from Nvidia), but tempered by recent Federal Reserve minutes suggesting interest rate cuts may be further off than anticipated. Indicators show the market might be slightly overbought, suggesting potential for short-term consolidation.</p>
+                </li>
+                <li>
+                    <strong>$BTC (Bitcoin):</strong> $69,450.10 <span class="negative">(-0.80% in 24h)</span>
+                    <p class="analysis">Bitcoin is consolidating below the key $70k resistance level. The recent approval of spot Ethereum ETFs in the U.S. has created a "sell the news" event for ETH and a ripple effect across the crypto market. Sentiment is mixed, with bulls pointing to institutional adoption and bears concerned about macroeconomic headwinds. The price is currently caught between major support and resistance zones.</p>
+                </li>
+                <li>
+                    <strong>$ETH (Ethereum):</strong> $3,785.42 <span class="positive">(+1.15% in 24h)</span>
+                    <p class="analysis">Ethereum is outperforming the broader market following the landmark SEC approval for several spot ETH ETFs. This is seen as a major validation for the asset. While the price surged on the news, it's now finding a new range. Market sentiment is strongly bullish, with projections focusing on the massive potential inflows once the ETFs begin trading. The key driver is no longer speculation, but the mechanics of the ETF launch.</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>Top AI Developments (Last 24 Hours)</h2>
+            <ul>
+                <li><strong>Microsoft Build Announcements:</strong> Microsoft unveiled "Team Copilot," turning its AI assistant into an active meeting facilitator and project manager within Teams. They also announced "Phi-3-vision," a small, powerful multimodal AI model capable of running directly on mobile devices.</li>
+                <li><strong>Google's Veo & Imagen 3:</strong> While announced last week, new demos and technical details for Google's most advanced text-to-video model (Veo) and text-to-image model (Imagen 3) were released, showcasing significant improvements in realism, prompt understanding, and text rendering in images.</li>
+                <li><strong>Scarlett Johansson vs. OpenAI:</strong> A major public story erupted as actress Scarlett Johansson stated that OpenAI's new "Sky" voice assistant sounds "eerily similar" to her own, after she had previously declined an offer to voice it. OpenAI has since paused the use of the voice. This has ignited a widespread debate on AI ethics, consent, and the use of personal likeness.</li>
+                <li><strong>Hugging Face & Pollen Robotics Partnership:</strong> The AI platform and robotics company announced a collaboration to develop open-source, AI-powered humanoid robots, aiming to democratize access to advanced robotics research and development tools.</li>
+            </ul>
+        </div>
+
     </div>
-
-    <script>
-        function setArgentineTime() {
-            const now = new Date();
-            const options = {
-                timeZone: 'America/Argentina/Buenos_Aires',
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: true
-            };
-            const formatter = new Intl.DateTimeFormat('en-US', options);
-            const formattedDate = formatter.format(now) + " (ART)";
-            document.getElementById('datetime').textContent = formattedDate;
-        }
-        setArgentineTime();
-    </script>
 
 </body>
 </html>
