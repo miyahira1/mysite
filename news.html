@@ -8,8 +8,8 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f7f9;
-            color: #333;
+            background-color: #121212;
+            color: #e0e0e0;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
@@ -17,152 +17,160 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background-color: #ffffff;
+            background-color: #1e1e1e;
             padding: 25px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
         }
-        header {
-            text-align: center;
-            border-bottom: 2px solid #eef;
-            padding-bottom: 15px;
-            margin-bottom: 25px;
+        h1, h2 {
+            color: #bb86fc;
+            border-bottom: 2px solid #373737;
+            padding-bottom: 10px;
         }
         h1 {
-            color: #1a237e;
-            margin: 0;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 0;
         }
-        #datetime {
-            color: #555;
-            font-size: 0.95em;
+        .timestamp {
+            text-align: center;
+            color: #a0a0a0;
+            margin-bottom: 25px;
+            font-size: 0.9em;
         }
         .section {
             margin-bottom: 30px;
-            padding: 20px;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            background-color: #fafcff;
         }
-        .section h2 {
-            margin-top: 0;
-            color: #3f51b5;
-            border-bottom: 1px solid #c5cae9;
-            padding-bottom: 8px;
+        strong {
+            color: #03dac6;
+        }
+        .weather-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            text-align: center;
+        }
+        .weather-item {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .weather-item .label {
+            font-size: 0.9em;
+            color: #a0a0a0;
+        }
+        .weather-item .value {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .alert-none {
+            color: #4caf50;
         }
         ul {
-            padding-left: 20px;
-            list-style-type: disc;
+            list-style-type: none;
+            padding: 0;
         }
         li {
+            background-color: #2a2a2a;
             margin-bottom: 10px;
+            padding: 15px;
+            border-left: 4px solid #bb86fc;
+            border-radius: 4px;
         }
-        .data-point {
-            font-weight: bold;
-            color: #1a237e;
-        }
-        .market-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px dashed #ddd;
-        }
-        .market-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        .price-up {
-            color: #2e7d32;
-        }
-        .price-down {
-            color: #c62828;
+        .market-item p, .economic-item p {
+            margin: 5px 0;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header>
-            <h1>Daily Intelligence Briefing</h1>
-            <p id="datetime">Loading date and time...</p>
-        </header>
+        <h1>Daily Intelligence Briefing</h1>
+        <p class="timestamp">
+            Generated on: <span id="datetime"></span>
+        </p>
 
-        <div class="section">
-            <h2>Weather Forecast</h2>
-            <p>
-                <span class="data-point">Temperature:</span> 9°C Min / 16°C Max<br>
-                <span class="data-point">Precipitation:</span> 15% chance of light rain in the afternoon.<br>
-                <span class="data-point">Alerts:</span> None.
-            </p>
+        <div id="weather" class="section">
+            <h2>Today's Weather Forecast</h2>
+            <div class="weather-grid">
+                <div class="weather-item">
+                    <div class="label">Max Temp</div>
+                    <div class="value">16°C</div>
+                </div>
+                <div class="weather-item">
+                    <div class="label">Min Temp</div>
+                    <div class="value">9°C</div>
+                </div>
+                <div class="weather-item">
+                    <div class="label">Precipitation</div>
+                    <div class="value">15%</div>
+                </div>
+                <div class="weather-item">
+                    <div class="label">Alerts</div>
+                    <div class="value alert-none">None</div>
+                </div>
+            </div>
         </div>
 
-        <div class="section">
+        <div id="jpmorgan-news" class="section">
             <h2>JP Morgan: Latest 24hs News</h2>
             <ul>
-                <li><strong>Global Markets:</strong> JP Morgan's strategists noted that while equities remain resilient, investors are becoming more selective, favoring quality stocks amid persistent inflation concerns. The firm's analysis points to a potential slowdown in consumer spending as a key risk factor.</li>
-                <li><strong>Working at JPM:</strong> The company continues its push for a return to the office, emphasizing the importance of in-person collaboration for junior staff development and overall firm culture. Recent internal communications have reiterated the five-day in-office expectation for managing directors.</li>
-                <li><strong>Argentina Focus:</strong> J.P. Morgan's latest report on Argentina highlights the positive impact of recent fiscal adjustments on investor confidence. However, it maintains a cautious outlook, citing the challenges of lifting currency controls ("cepo") and achieving sustainable long-term growth as significant hurdles.</li>
+                <li><strong>Global Strategy:</strong> Analysts at JP Morgan have reiterated a cautious stance on US equities, citing high valuations and potential for a market pullback. They advise clients to consider diversifying into undervalued international markets.</li>
+                <li><strong>Work Culture:</strong> A recent internal memo highlighted the firm's ongoing hybrid work model evaluation, emphasizing the importance of in-office "apprenticeship and collaboration" days while maintaining flexibility. The firm continues to be a top recruiter on college campuses for finance and tech roles.</li>
+                <li><strong>Argentina Outlook:</strong> JP Morgan's latest report on Argentina noted the government's fiscal progress but highlighted upcoming challenges related to lifting currency controls ("cepo"). The bank's EMBI index, which calculates country risk, remains a key indicator for international investors.</li>
+                <li><strong>Technology Investment:</strong> The bank announced a strategic partnership with a leading AI firm to enhance its fraud detection algorithms, aiming to reduce false positives and improve security for its millions of customers worldwide.</li>
             </ul>
         </div>
 
-        <div class="section">
-            <h2>Argentina: Economic Indicators</h2>
-            <ul>
-                <li>
-                    <strong>Dólar Blue:</strong>
-                    <ul>
-                        <li><span class="data-point">Current Price:</span> ARS $1,285.</li>
-                        <li><span class="data-point">Recent Change:</span> A slight increase of +$5 from the previous close, showing relative stability after weeks of volatility.</li>
-                        <li><span class="data-point">Projections:</span> Analysts expect continued pressure on the blue rate as import restrictions ease and seasonal demand for foreign currency picks up. The gap with the official rate remains a key focus for the market.</li>
-                    </ul>
-                </li>
-                <li>
-                    <strong>Riesgo País (Country Risk):</strong>
-                    <ul>
-                        <li><span class="data-point">Current Value:</span> 1,248 points.</li>
-                        <li><span class="data-point">Recent Change:</span> Decreased by -22 points, continuing a downward trend.</li>
-                        <li><span class="data-point">Projections:</span> The reduction in country risk reflects positive market sentiment following successful debt negotiations and fiscal consolidation efforts. Future movements depend heavily on the government's ability to pass key structural reforms and secure external financing.</li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-
-        <div class="section">
-            <h2>Market Updates: SPY, BTC, ETH</h2>
-            <div class="market-item">
-                <h3>SPDR S&P 500 ETF ($SPY)</h3>
-                <p>
-                    <span class="data-point">Price:</span> $546.50 <span class="price-up">(+0.25%)</span><br>
-                    <span class="data-point">Analysis:</span> The market is showing cautious optimism. Sentiment is neutral-to-positive, driven by cooling inflation data which increases hopes for a Federal Reserve rate cut later this year. Key indicators like the Relative Strength Index (RSI) are not in overbought territory, suggesting room for further upside. However, trading volume is moderate, indicating some hesitation from buyers at these levels.
-                </p>
+        <div id="argentina-economy" class="section">
+            <h2>Argentina: Dólar Blue & Riesgo País</h2>
+            <div class="economic-item">
+                <h3>Dólar Blue</h3>
+                <p><strong>Current Price:</strong> Compra: <strong>$1,225</strong> / Venta: <strong>$1,245</strong></p>
+                <p><strong>Recent Changes:</strong> The blue dollar remains stable, showing a slight decrease in the last session. The gap ("brecha") with the official dollar is currently hovering around 35%.</p>
+                <p><strong>Projections:</strong> Market analysts expect continued stability in the short term, pending new economic measures and Central Bank interventions. The upcoming aguinaldo (half-year bonus) payments could introduce temporary volatility.</p>
             </div>
-            <div class="market-item">
-                <h3>Bitcoin ($BTC)</h3>
-                <p>
-                    <span class="data-point">Price:</span> $66,150 <span class="price-down">(-2.10%)</span><br>
-                    <span class="data-point">Analysis:</span> Bitcoin is facing downward pressure. Sentiment has turned slightly bearish due to significant outflows from spot Bitcoin ETFs and concerns over miners selling reserves. The price is currently testing a key support level around $66,000. A break below this could lead to further declines, while a strong bounce could signal a reversal.
-                </p>
-            </div>
-            <div class="market-item">
-                <h3>Ethereum ($ETH)</h3>
-                <p>
-                    <span class="data-point">Price:</span> $3,540 <span class="price-down">(-1.85%)</span><br>
-                    <span class="data-point">Analysis:</span> Ethereum is moving in tandem with Bitcoin but shows some underlying strength. Sentiment is mixed. While the broader crypto market pullback is a negative factor, anticipation for the launch of spot Ether ETFs continues to provide support. Market indicators show a consolidation pattern, with the price trading within a defined range. A major catalyst, such as an official ETF launch date, is needed for a significant breakout.
-                </p>
+            <div class="economic-item">
+                <h3>Riesgo País (Country Risk)</h3>
+                <p><strong>Current Value:</strong> <strong>1,289</strong> basis points</p>
+                <p><strong>Recent Changes:</strong> Argentina's country risk has shown a slight increase in recent days, reflecting investor uncertainty regarding negotiations with the IMF and the long-term sustainability of fiscal adjustments.</p>
+                <p><strong>Projections:</strong> The indicator's trajectory is heavily dependent on positive signals from the government regarding its economic program and its ability to build foreign reserves. A value below 1,200 points is seen as a key psychological target.</p>
             </div>
         </div>
 
-        <div class="section">
-            <h2>Top AI Developments (Last 24 Hours)</h2>
+        <div id="market-updates" class="section">
+            <h2>Market Updates: $SPY, $BTC, $ETH</h2>
+            <div class="market-item">
+                <h3>$SPY (S&P 500 ETF)</h3>
+                <p><strong>Current Price:</strong> <strong>$545.80</strong> (<strong>-0.25%</strong>)</p>
+                <p><strong>Analysis:</strong> Sentiment is cautious as investors await key inflation data (PCE index) later this week. The market is trading in a tight range, with technical indicators like the RSI suggesting a neutral-to-slightly-overbought condition. Movements are primarily driven by macroeconomic expectations rather than company-specific news.</p>
+            </div>
+            <div class="market-item">
+                <h3>$BTC (Bitcoin)</h3>
+                <p><strong>Current Price:</strong> <strong>$60,950.45</strong> (<strong>-1.80%</strong>)</p>
+                <p><strong>Analysis:</strong> Bitcoin is facing downward pressure, testing the critical $60k support level. The sentiment is bearish in the short term, influenced by reports of sales from the German government and Mt. Gox wallet movements. Long-term holder metrics, however, show continued accumulation, suggesting a possible divergence between spot price and underlying strength.</p>
+            </div>
+            <div class="market-item">
+                <h3>$ETH (Ethereum)</h3>
+                <p><strong>Current Price:</strong> <strong>$3,365.20</strong> (<strong>-2.15%</strong>)</p>
+                <p><strong>Analysis:</strong> Ethereum is following Bitcoin's downward trend, further impacted by a lack of immediate catalysts following the approval of Spot ETH ETFs. Market sentiment is mixed; while the short-term price action is weak, the potential for significant institutional inflows once the ETFs begin trading provides a bullish mid-term outlook.</p>
+            </div>
+        </div>
+
+        <div id="ai-developments" class="section">
+            <h2>AI Developments: Past 24 Hours</h2>
             <ul>
-                <li><strong>Apple's AI Strategy Detailed:</strong> Following its WWDC event, more details have emerged about "Apple Intelligence." The system is designed to be deeply integrated and context-aware, running primarily on-device for privacy. The partnership with OpenAI for ChatGPT is positioned as an optional, explicit user choice for more complex queries, not a core system dependency.</li>
-                <li><strong>Perplexity Pages Launched:</strong> AI search engine Perplexity has launched "Pages," a new tool that automatically generates comprehensive, well-structured articles and reports from search queries. It can organize information with sections, images, and citations, turning a simple prompt into a shareable webpage.</li>
-                <li><strong>NVIDIA and Partners Announce New AI Laptops:</strong> In conjunction with Computex, major manufacturers like ASUS and MSI have announced a new wave of "Copilot+ PC" laptops powered by NVIDIA's RTX GPUs. These devices are optimized for running generative AI tasks locally, promising enhanced performance for AI-powered applications in creative and productivity workflows.</li>
+                <li><strong>Perplexity Pages:</strong> AI search engine Perplexity has launched "Pages," a new feature that allows users to create and share comprehensive, well-structured articles on any topic by simply providing a prompt. The tool automatically curates information, organizes it, and adds citations.</li>
+                <li><strong>Google's Veo Expands Access:</strong> Google has expanded early access to its new text-to-video model, Veo, to select filmmakers and creators through its VideoFX platform. Early demos showcase high-quality, cinematic video generation, positioning it as a strong competitor to OpenAI's Sora.</li>
+                <li><strong>Apple & Meta AI Partnership Talks:</strong> Reports have emerged that Apple is in discussions with Meta to potentially integrate Meta's generative AI models into its "Apple Intelligence" system. This follows a similar announced partnership with OpenAI, indicating Apple's strategy to offer a range of AI models to its users.</li>
+                <li><strong>Mistral's New Coding Model:</strong> French AI startup Mistral has released "Codestral 22B," a new open-source model specialized in code generation. It supports over 80 programming languages and is designed to be more efficient and faster than larger models for coding-specific tasks.</li>
             </ul>
         </div>
     </div>
 
     <script>
-        function updateTime() {
+        function setArgentineTime() {
+            const now = new Date();
             const options = {
                 timeZone: 'America/Argentina/Buenos_Aires',
                 weekday: 'long',
@@ -172,14 +180,13 @@
                 hour: '2-digit',
                 minute: '2-digit',
                 second: '2-digit',
+                hour12: true
             };
             const formatter = new Intl.DateTimeFormat('en-US', options);
-            const formattedDate = formatter.format(new Date());
-            document.getElementById('datetime').textContent = `Generated on: ${formattedDate} (Argentina Time)`;
+            const formattedDate = formatter.format(now) + " (ART)";
+            document.getElementById('datetime').textContent = formattedDate;
         }
-        // Update time immediately and then every second
-        updateTime();
-        setInterval(updateTime, 1000);
+        setArgentineTime();
     </script>
 
 </body>
