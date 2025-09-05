@@ -18,7 +18,7 @@ function App() {
               <li><Link to="/about">About</Link></li>
               <li><Link to="/contact">Contact</Link></li>
                             <li><Link to="/news">News</Link></li>
-              <li><a href="/mysite/html_test.html">HTML Test</a></li>
+              <li><a href={process.env.PUBLIC_URL + '/html_test.html'}>HTML Test</a></li>
             </ul>
           </nav>
         </header>
