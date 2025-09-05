@@ -4,223 +4,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Briefing</title>
+    <title>Daily Intelligence Briefing</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-
         body {
-            font-family: 'Roboto', sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
         }
-
         .container {
             max-width: 900px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
+            background-color: #ffffff;
+            padding: 25px 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
-
-        .header {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 10px 0 30px 0;
-            border-bottom: 1px solid #333;
-        }
-
-        .header h1 {
-            margin: 0;
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        .header p {
-            margin: 5px 0 0 0;
-            color: #999;
-            font-size: 0.9em;
-        }
-
-        .card {
-            background-color: #1e1e1e;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .card.full-width {
-            grid-column: 1 / -1;
-        }
-
-        .card h2 {
-            margin-top: 0;
-            color: #4CAF50;
-            border-bottom: 2px solid #333;
+        h1, h2, h3 {
+            color: #1a2533;
+            border-bottom: 2px solid #eef2f5;
             padding-bottom: 10px;
-            font-weight: 700;
-            font-size: 1.2em;
+            margin-top: 20px;
         }
-
-        ul {
-            padding-left: 20px;
-            margin: 0;
-        }
-
-        li {
-            margin-bottom: 10px;
-        }
-
-        .data-point {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 8px 0;
-            border-bottom: 1px solid #2c2c2c;
-        }
-        .data-point:last-child {
+        h1 {
+            text-align: center;
+            margin-top: 0;
             border-bottom: none;
+            font-size: 2.2em;
         }
-
-        .data-point span:first-child {
-            font-weight: 700;
-            color: #b0b0b0;
+        h2 {
+            font-size: 1.5em;
         }
-
-        .data-point span:last-child {
-            font-weight: 400;
-            color: #ffffff;
+        h3 {
+            font-size: 1.2em;
+            border-bottom: 1px dashed #e0e0e0;
         }
-        
-        .price {
-            font-weight: 700 !important;
-            font-size: 1.1em;
-        }
-
-        .change {
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.9em;
-            color: #fff;
-        }
-        
-        .up {
-            background-color: #2e7d32;
-        }
-
-        .down {
-            background-color: #c62828;
-        }
-        
-        .neutral {
-             background-color: #5a5a5a;
-        }
-        
-        .analysis {
+        #generation-time {
+            text-align: center;
+            color: #667;
+            margin-bottom: 30px;
             font-style: italic;
-            color: #aaa;
-            font-size: 0.9em;
-            margin-top: 10px;
-            border-left: 3px solid #4CAF50;
-            padding-left: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        li {
+            background-color: #f8fafc;
+            border-left: 4px solid #007bff;
+            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .positive { color: #28a745; }
+        .negative { color: #dc3545; }
+        .neutral { color: #6c757d; }
+        .price-tag {
+            font-weight: bold;
+            font-size: 1.1em;
+            display: inline-block;
+            min-width: 150px;
+        }
+        .change-tag {
+            margin-left: 15px;
+            font-weight: 500;
+        }
+        .section-summary {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
-
-    <div class="header">
-        <h1>Daily Intelligence Briefing</h1>
-        <p id="generation-time">Generated on: June 12, 2024, 11:30:05 AM (America/Argentina/Buenos_Aires)</p>
-    </div>
-
     <div class="container">
+        <h1>Daily Intelligence Briefing</h1>
+        <p id="generation-time">
+            Generated on: 
+            <script>
+                document.write(new Date().toLocaleString("es-AR", {
+                    timeZone: "America/Argentina/Buenos_Aires",
+                    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                    hour: '2-digit', minute: '2-digit', second: '2-digit'
+                }));
+            </script>
+        </p>
 
-        <div class="card">
-            <h2>Today's Forecast</h2>
-            <div class="data-point">
-                <span>Temperature Min/Max:</span>
-                <span>10°C / 16°C</span>
-            </div>
-            <div class="data-point">
-                <span>Precipitation:</span>
-                <span>10% chance of light showers</span>
-            </div>
-            <div class="data-point">
-                <span>Alerts:</span>
-                <span>No active alerts.</span>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>Argentine Economic Indicators</h2>
-            <div class="data-point">
-                <span>Dólar Blue (Venta):</span>
-                <span class="price">$1,280 <span class="change up">+0.4%</span></span>
-            </div>
-             <div class="data-point">
-                <span>Riesgo País:</span>
-                <span class="price">1,485 pts <span class="change down">-1.2%</span></span>
-            </div>
-            <p class="analysis">
-                The Dólar Blue shows slight upward pressure amidst market anticipation of economic reforms. Riesgo País continues its downward trend, reflecting increased investor confidence following recent policy announcements.
-            </p>
-        </div>
-
-        <div class="card full-width">
-            <h2>JP Morgan: 24-Hour News Digest</h2>
+        <!-- Weather Section -->
+        <h2>Today's Forecast</h2>
+        <div class="section-summary">
             <ul>
-                <li><strong>Global Markets:</strong> JP Morgan strategists advise caution ahead of the US Federal Reserve's interest rate decision, noting that markets have already priced in a "hawkish hold."</li>
-                <li><strong>Work & Technology:</strong> The firm continues its push into AI, with reports indicating a significant expansion of its AI and data science teams to enhance trading algorithms and risk management models.</li>
-                <li><strong>In Argentina:</strong> While no major country-specific announcements were made, JPM's latest Latin America outlook report reiterated a cautiously optimistic view on Argentina, pending the successful implementation of the current government's fiscal adjustment plan.</li>
-                <li><strong>World View:</strong> CEO Jamie Dimon commented on the global regulatory environment, emphasizing the need for clearer rules in the digital asset space to foster innovation while protecting investors.</li>
+                <li><strong>Max/Min Temperature:</strong> 17°C / 9°C</li>
+                <li><strong>Precipitation:</strong> 0% chance. Clear skies expected throughout the day.</li>
+                <li><strong>Alerts:</strong> No weather alerts in effect.</li>
             </ul>
         </div>
         
-        <div class="card full-width">
-            <h2>Market Snapshot</h2>
-            <div class="data-point">
-                <span><strong>$SPY</strong> (S&P 500 ETF):</span>
-                <span>
-                    <span class="price">$536.50</span>
-                    <span class="change down">-0.25%</span>
-                </span>
-            </div>
-            <p class="analysis">Sentiment is neutral-to-bearish as investors await inflation data (CPI) and the Fed's statement. Low volume suggests a wait-and-see approach, with technical indicators showing potential for consolidation around current levels.</p>
+        <!-- JP Morgan News -->
+        <h2>JP Morgan: 24h Update</h2>
+        <ul>
+            <li><strong>Global:</strong> JPMorgan Chase CEO Jamie Dimon is scheduled to testify before the Senate Banking Committee, with expectations he will discuss economic stability, inflation, and regulatory frameworks. The bank's analysts also released a note suggesting that while market volatility has decreased, underlying geopolitical risks remain a key concern for investors.</li>
+            <li><strong>Workplace/Hiring:</strong> The bank continues its push into AI and tech talent acquisition. Recent job postings highlight a focus on machine learning engineers and data scientists, aiming to integrate AI deeper into trading, risk management, and client services.</li>
+            <li><strong>In Argentina:</strong> JP Morgan's local division maintained its "underweight" recommendation for Argentine sovereign bonds, citing persistent macroeconomic uncertainty despite recent fiscal adjustments. The firm's "Riesgo País" index, which it calculates, remains a critical benchmark for the country.</li>
+        </ul>
 
-            <div class="data-point">
-                <span><strong>$BTC</strong> (Bitcoin):</span>
-                <span>
-                    <span class="price">$67,450.10</span>
-                    <span class="change down">-3.5%</span>
-                </span>
-            </div>
-            <p class="analysis">Negative sentiment prevails, driven by significant outflows from spot Bitcoin ETFs and overall market anxiety before macroeconomic news. The drop is a reaction to fears of a more restrictive monetary policy from the Fed.</p>
+        <!-- Argentine Financials -->
+        <h2>Argentine Market Snapshot</h2>
+        <h3>Dólar Blue</h3>
+        <ul>
+            <li>
+                <span class="price-tag">Current Price:</span> ARS $1,265
+                <span class="change-tag negative">↓ -1.17% (Recent Change)</span>
+            </li>
+            <li><strong>Projections:</strong> The informal dollar saw a slight decrease after recent volatility. Analysts suggest the price may stabilize around this level in the short term, pending new signals from the Central Bank regarding interest rates and currency controls. The gap with the official dollar remains a key focus.</li>
+        </ul>
+        <h3>Riesgo País (Country Risk)</h3>
+        <ul>
+            <li>
+                <span class="price-tag">Current Level:</span> 1,412 points
+                <span class="change-tag positive">↑ +0.50% (Recent Change)</span>
+            </li>
+            <li><strong>Projections:</strong> The Country Risk index ticked up slightly, reflecting cautious sentiment from international investors. While it remains significantly lower than its peaks, any upward movement is watched closely as an indicator of perceived risk in Argentine assets. Future trends depend heavily on the government's ability to sustain fiscal discipline and progress in negotiations with external creditors.</li>
+        </ul>
 
-            <div class="data-point">
-                <span><strong>$ETH</strong> (Ethereum):</span>
-                <span>
-                    <span class="price">$3,510.40</span>
-                    <span class="change down">-4.2%</span>
-                </span>
-            </div>
-            <p class="analysis">Ethereum is following Bitcoin's downward trend, amplified by uncertainty around the timeline for spot ETH ETF launches. The movement is largely tied to the broader crypto market sentiment rather than specific protocol news.</p>
-        </div>
+        <!-- Global Markets -->
+        <h2>Global Markets: SPY, BTC, ETH</h2>
+        <h3>$SPY (S&P 500 ETF)</h3>
+        <ul>
+            <li>
+                <span class="price-tag">Current Price:</span> ~$534.50
+                <span class="change-tag negative">↓ -0.15% (24h)</span>
+            </li>
+            <li><strong>Analysis:</strong> The market shows slight consolidation after recent gains. Sentiment is neutral-to-cautious as investors await key inflation data later this week. The VIX (volatility index) remains low, but trading volumes are moderate, suggesting a "wait-and-see" approach. Any surprises in CPI data could trigger the next significant move.</li>
+        </ul>
+        <h3>$BTC (Bitcoin)</h3>
+        <ul>
+            <li>
+                <span class="price-tag">Current Price:</span> ~$67,500
+                <span class="change-tag negative">↓ -2.50% (24h)</span>
+            </li>
+            <li><strong>Analysis:</strong> Bitcoin is facing downward pressure after failing to break the $70,000 resistance level. The Crypto Fear & Greed Index has shifted from "Extreme Greed" to "Greed," indicating cooling sentiment. The movement is largely technical, with some profit-taking and reduced inflows into spot Bitcoin ETFs observed over the past day. Support is being tested around the $66,000 level.</li>
+        </ul>
+        <h3>$ETH (Ethereum)</h3>
+        <ul>
+            <li>
+                <span class="price-tag">Current Price:</span> ~$3,500
+                <span class="change-tag negative">↓ -3.80% (24h)</span>
+            </li>
+            <li><strong>Analysis:</strong> Ethereum is underperforming Bitcoin in the last 24 hours, correcting more sharply. This follows a period of strong performance driven by speculation around spot Ether ETFs. The market is now pricing in the reality that ETF launches and subsequent inflows may take time. The decline is seen as a healthy correction, but a break below $3,400 could signal further downside.</li>
+        </ul>
 
-        <div class="card full-width">
-            <h2>Top AI Developments (Last 24 Hours)</h2>
-            <ul>
-                <li><strong>Apple Intelligence Unveiled:</strong> Following its WWDC keynote, details continue to emerge about "Apple Intelligence." The focus is on deeply integrated, on-device AI for privacy, with a partnership with OpenAI to bring ChatGPT to Siri and other writing tools system-wide.</li>
-                <li><strong>Perplexity Pages Launch:</strong> AI search engine Perplexity has launched "Pages," a new feature that allows users to curate information and generate comprehensive, well-structured articles or reports from search results, positioning it as a competitor to traditional content creation tools.</li>
-                <li><strong>Stable Diffusion 3 Medium Release:</strong> Stability AI released Stable Diffusion 3 Medium, their most advanced text-to-image model yet, now available as an open model. It boasts significant improvements in typography rendering and prompt understanding compared to previous versions.</li>
-            </ul>
-        </div>
+        <!-- AI Developments -->
+        <h2>Top AI Developments (24h)</h2>
+        <ul>
+            <li><strong>Apple Announces "Apple Intelligence":</strong> At its WWDC event, Apple officially unveiled its suite of AI features, named "Apple Intelligence." It will be deeply integrated into iOS 18, iPadOS 18, and macOS Sequoia. Key features include an upgraded, context-aware Siri, system-wide writing tools (rewriting, summarizing), and image generation. Notably, Apple announced a partnership to integrate OpenAI's ChatGPT for more complex queries.</li>
+            <li><strong>Perplexity Unveils "Pages":</strong> AI search engine Perplexity has launched a new feature called Pages, which allows users to convert their search queries and research into structured, shareable articles, reports, or guides. The tool automatically organizes information, cites sources, and allows for customization, positioning itself as a competitor to traditional content creation workflows.</li>
+             <li><strong>Elon Musk Threatens Apple Ban:</strong> Following Apple's announcement of its OpenAI integration, Elon Musk stated he would ban Apple devices from his companies (Tesla, SpaceX, etc.) if ChatGPT is integrated at the OS level. He cited major security risks, sparking a wide debate on data privacy and the security of on-device vs. cloud-based AI processing.</li>
+        </ul>
 
     </div>
-
 </body>
 </html>
 ```
