@@ -24,9 +24,7 @@
     "start": "cross-env PORT=3003 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -47,7 +45,6 @@
     ]
   },
   "devDependencies": {
-    "cross-env": "^10.0.0",
-    "gh-pages": "^6.3.0"
+    "cross-env": "^10.0.0"
   }
 }
