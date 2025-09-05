@@ -14,7 +14,7 @@ function App() {
           <nav className="App-nav">
             <h1>My Awesome Website</h1>
             <ul>
-              <li><Link to="/">Home</Link></li>
+              <li><Link to="/mysite/">Home</Link></li>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/contact">Contact</Link></li>
               <li><a href={process.env.PUBLIC_URL + '/news.html'}>News</a></li>
@@ -22,7 +22,7 @@ function App() {
           </nav>
         </header>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/mysite/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/news" element={<News />} />
