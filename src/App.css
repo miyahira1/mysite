@@ -53,3 +53,66 @@
   color: white;
   text-align: center;
 }
+
+.widgets-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.widget {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.weather-forecast .city {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.weather-forecast .temp {
+  font-size: 2.5em;
+  margin: 10px 0;
+  color: #333;
+}
+
+.weather-forecast .condition {
+  font-size: 1.2em;
+  color: #666;
+}
+
+.financial-prices .price-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.financial-prices .price-item:last-child {
+  border-bottom: none;
+}
+
+.financial-prices .price-label {
+  font-weight: bold;
+}
+
+.news-link a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #61dafb;
+  color: #282c34;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.news-link a:hover {
+  background-color: #21a1f1;
+}
