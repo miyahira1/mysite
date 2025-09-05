@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Intelligence Briefing</title>
+    <title>Daily Briefing</title>
     <style>
         body {
+            background-color: #121212;
+            color: #e0e0e0;
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f7f9;
-            color: #333;
             line-height: 1.6;
             margin: 0;
             padding: 20px;
@@ -17,152 +17,222 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background-color: #ffffff;
-            padding: 25px 35px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            background-color: #1e1e1e;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
         }
-        h1, h2, h3 {
-            color: #1a2533;
-            border-bottom: 2px solid #eef2f5;
+        h1, h2 {
+            color: #ffffff;
+            border-bottom: 2px solid #444;
             padding-bottom: 10px;
-            margin-top: 20px;
-        }
-        h1 {
-            text-align: center;
             margin-top: 0;
-            border-bottom: none;
-            font-size: 2.2em;
         }
         h2 {
-            font-size: 1.5em;
+            margin-top: 30px;
         }
-        h3 {
-            font-size: 1.2em;
-            border-bottom: 1px dashed #e0e0e0;
-        }
-        #generation-time {
+        .header {
             text-align: center;
-            color: #667;
-            margin-bottom: 30px;
-            font-style: italic;
+            margin-bottom: 20px;
+        }
+        .header p {
+            font-size: 0.9em;
+            color: #999;
+            margin: 0;
+        }
+        .section {
+            margin-bottom: 25px;
+        }
+        .weather-info {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .weather-item {
+            flex: 1;
+        }
+        .weather-item strong {
+            display: block;
+            font-size: 1.2em;
+            color: #bb86fc;
+        }
+        .alert {
+            background-color: #cf6679;
+            color: #121212;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
+        }
+        .no-alert {
+            background-color: #03dac6;
+            color: #121212;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 15px;
         }
         ul {
             list-style-type: none;
             padding-left: 0;
         }
         li {
-            background-color: #f8fafc;
-            border-left: 4px solid #007bff;
-            margin-bottom: 10px;
-            padding: 15px;
+            background-color: #2a2a2a;
+            padding: 12px;
             border-radius: 5px;
+            margin-bottom: 10px;
         }
-        .positive { color: #28a745; }
-        .negative { color: #dc3545; }
-        .neutral { color: #6c757d; }
-        .price-tag {
+        li strong {
+            color: #bb86fc;
+        }
+        .finance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .finance-card {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .finance-card h3 {
+            margin-top: 0;
+            color: #03dac6;
+        }
+        .price {
+            font-size: 1.8em;
             font-weight: bold;
-            font-size: 1.1em;
-            display: inline-block;
-            min-width: 150px;
+            color: #fff;
         }
-        .change-tag {
-            margin-left: 15px;
+        .change {
+            font-size: 1.1em;
             font-weight: 500;
         }
-        .section-summary {
-            font-size: 1.1em;
-            color: #555;
-            margin-bottom: 15px;
+        .positive {
+            color: #4CAF50;
+        }
+        .negative {
+            color: #F44336;
+        }
+        .analysis {
+            font-size: 0.9em;
+            color: #b0b0b0;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Daily Intelligence Briefing</h1>
-        <p id="generation-time">
-            Generated on: 
-            <script>
-                document.write(new Date().toLocaleString("es-AR", {
-                    timeZone: "America/Argentina/Buenos_Aires",
-                    weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-                    hour: '2-digit', minute: '2-digit', second: '2-digit'
-                }));
-            </script>
-        </p>
+        <div class="header">
+            <h1>Daily Briefing</h1>
+            <p>Generated on: Tuesday, May 21, 2024, 11:35 AM (Argentina Time, GMT-3)</p>
+        </div>
 
         <!-- Weather Section -->
-        <h2>Today's Forecast</h2>
-        <div class="section-summary">
+        <div class="section">
+            <h2>Today's Forecast</h2>
+            <div class="weather-info">
+                <div class="weather-item">
+                    Max Temp
+                    <strong>17°C</strong>
+                </div>
+                <div class="weather-item">
+                    Min Temp
+                    <strong>12°C</strong>
+                </div>
+                <div class="weather-item">
+                    Precipitation
+                    <strong>0%</strong>
+                </div>
+            </div>
+            <div class="no-alert">
+                No active weather alerts.
+            </div>
+        </div>
+
+        <!-- JP Morgan News Section -->
+        <div class="section">
+            <h2>JP Morgan: 24-Hour News Digest</h2>
             <ul>
-                <li><strong>Max/Min Temperature:</strong> 17°C / 9°C</li>
-                <li><strong>Precipitation:</strong> 0% chance. Clear skies expected throughout the day.</li>
-                <li><strong>Alerts:</strong> No weather alerts in effect.</li>
+                <li><strong>Global Strategy:</strong> JP Morgan strategists reiterated a cautious stance on US stocks, citing risks from high valuations, potential interest rate volatility, and geopolitical tensions. They advise a defensive portfolio allocation.</li>
+                <li><strong>Working at JPM:</strong> The firm announced an expansion of its "return-to-office" policy, now requiring most managing directors to be in the office five days a week, reinforcing its commitment to in-person collaboration.</li>
+                <li><strong>Argentina Operations:</strong> JP Morgan's EMBI index ("Riesgo País") for Argentina continues to be a key focus for local markets. The bank's analysts noted that recent fiscal discipline measures are viewed positively by investors but that sustained political support is crucial for long-term stability.</li>
+                <li><strong>Banking Technology:</strong> In a tech conference, a JP Morgan executive highlighted the bank's increased investment in AI and machine learning to enhance fraud detection, personalize client services, and optimize trading algorithms across its global operations.</li>
             </ul>
         </div>
+
+        <!-- Argentine Economy Section -->
+        <div class="section">
+            <h2>Argentine Economic Indicators</h2>
+            <div class="finance-grid">
+                <div class="finance-card">
+                    <h3>Dólar Blue</h3>
+                    <p class="price">ARS $1,250</p>
+                    <p class="change positive">+$20 (from previous close)</p>
+                    <div class="analysis">
+                        The "blue" dollar continues its upward trend, driven by increased seasonal demand and market uncertainty following the latest inflation data. Projections remain volatile, with analysts watching central bank interventions and progress on economic reforms.
+                    </div>
+                </div>
+                <div class="finance-card">
+                    <h3>Riesgo País (Country Risk)</h3>
+                    <p class="price">1,225 points</p>
+                    <p class="change negative">-15 points (from previous close)</p>
+                    <div class="analysis">
+                        Country risk has decreased slightly, reflecting cautious optimism from international investors regarding the government's fiscal adjustment plan. Positive debt negotiations and a favorable trade balance have contributed to the recent decline.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Market Updates Section -->
+        <div class="section">
+            <h2>Market Updates</h2>
+            <div class="finance-grid">
+                <div class="finance-card">
+                    <h3>$SPY (S&P 500 ETF)</h3>
+                    <p class="price">$531.15</p>
+                    <p class="change positive">+0.15% (24h)</p>
+                    <div class="analysis">
+                        <strong>Sentiment:</strong> Cautiously Optimistic. <br>
+                        The market is trading near all-time highs, supported by strong tech earnings. However, investors remain wary of upcoming inflation reports and Fed commentary. The RSI is approaching overbought territory, suggesting a potential for a short-term pullback.
+                    </div>
+                </div>
+                <div class="finance-card">
+                    <h3>$BTC (Bitcoin)</h3>
+                    <p class="price">$71,150.40</p>
+                    <p class="change positive">+6.80% (24h)</p>
+                    <div class="analysis">
+                        <strong>Sentiment:</strong> Bullish. <br>
+                        Bitcoin has surged past the $71k resistance level, fueled by speculation about the potential approval of an Ethereum ETF, which has lifted the entire crypto market. Positive institutional inflows into spot Bitcoin ETFs are also providing strong support.
+                    </div>
+                </div>
+                <div class="finance-card">
+                    <h3>$ETH (Ethereum)</h3>
+                    <p class="price">$3,695.22</p>
+                    <p class="change positive">+18.95% (24h)</p>
+                    <div class="analysis">
+                        <strong>Sentiment:</strong> Extremely Bullish. <br>
+                        Ethereum is experiencing a massive rally after analysts dramatically increased the odds of a spot Ether ETF approval by the SEC. This regulatory news has triggered a significant short squeeze and a wave of buying pressure, outperforming the broader market.
+                    </div>
+                </div>
+            </div>
+        </div>
         
-        <!-- JP Morgan News -->
-        <h2>JP Morgan: 24h Update</h2>
-        <ul>
-            <li><strong>Global:</strong> JPMorgan Chase CEO Jamie Dimon is scheduled to testify before the Senate Banking Committee, with expectations he will discuss economic stability, inflation, and regulatory frameworks. The bank's analysts also released a note suggesting that while market volatility has decreased, underlying geopolitical risks remain a key concern for investors.</li>
-            <li><strong>Workplace/Hiring:</strong> The bank continues its push into AI and tech talent acquisition. Recent job postings highlight a focus on machine learning engineers and data scientists, aiming to integrate AI deeper into trading, risk management, and client services.</li>
-            <li><strong>In Argentina:</strong> JP Morgan's local division maintained its "underweight" recommendation for Argentine sovereign bonds, citing persistent macroeconomic uncertainty despite recent fiscal adjustments. The firm's "Riesgo País" index, which it calculates, remains a critical benchmark for the country.</li>
-        </ul>
-
-        <!-- Argentine Financials -->
-        <h2>Argentine Market Snapshot</h2>
-        <h3>Dólar Blue</h3>
-        <ul>
-            <li>
-                <span class="price-tag">Current Price:</span> ARS $1,265
-                <span class="change-tag negative">↓ -1.17% (Recent Change)</span>
-            </li>
-            <li><strong>Projections:</strong> The informal dollar saw a slight decrease after recent volatility. Analysts suggest the price may stabilize around this level in the short term, pending new signals from the Central Bank regarding interest rates and currency controls. The gap with the official dollar remains a key focus.</li>
-        </ul>
-        <h3>Riesgo País (Country Risk)</h3>
-        <ul>
-            <li>
-                <span class="price-tag">Current Level:</span> 1,412 points
-                <span class="change-tag positive">↑ +0.50% (Recent Change)</span>
-            </li>
-            <li><strong>Projections:</strong> The Country Risk index ticked up slightly, reflecting cautious sentiment from international investors. While it remains significantly lower than its peaks, any upward movement is watched closely as an indicator of perceived risk in Argentine assets. Future trends depend heavily on the government's ability to sustain fiscal discipline and progress in negotiations with external creditors.</li>
-        </ul>
-
-        <!-- Global Markets -->
-        <h2>Global Markets: SPY, BTC, ETH</h2>
-        <h3>$SPY (S&P 500 ETF)</h3>
-        <ul>
-            <li>
-                <span class="price-tag">Current Price:</span> ~$534.50
-                <span class="change-tag negative">↓ -0.15% (24h)</span>
-            </li>
-            <li><strong>Analysis:</strong> The market shows slight consolidation after recent gains. Sentiment is neutral-to-cautious as investors await key inflation data later this week. The VIX (volatility index) remains low, but trading volumes are moderate, suggesting a "wait-and-see" approach. Any surprises in CPI data could trigger the next significant move.</li>
-        </ul>
-        <h3>$BTC (Bitcoin)</h3>
-        <ul>
-            <li>
-                <span class="price-tag">Current Price:</span> ~$67,500
-                <span class="change-tag negative">↓ -2.50% (24h)</span>
-            </li>
-            <li><strong>Analysis:</strong> Bitcoin is facing downward pressure after failing to break the $70,000 resistance level. The Crypto Fear & Greed Index has shifted from "Extreme Greed" to "Greed," indicating cooling sentiment. The movement is largely technical, with some profit-taking and reduced inflows into spot Bitcoin ETFs observed over the past day. Support is being tested around the $66,000 level.</li>
-        </ul>
-        <h3>$ETH (Ethereum)</h3>
-        <ul>
-            <li>
-                <span class="price-tag">Current Price:</span> ~$3,500
-                <span class="change-tag negative">↓ -3.80% (24h)</span>
-            </li>
-            <li><strong>Analysis:</strong> Ethereum is underperforming Bitcoin in the last 24 hours, correcting more sharply. This follows a period of strong performance driven by speculation around spot Ether ETFs. The market is now pricing in the reality that ETF launches and subsequent inflows may take time. The decline is seen as a healthy correction, but a break below $3,400 could signal further downside.</li>
-        </ul>
-
-        <!-- AI Developments -->
-        <h2>Top AI Developments (24h)</h2>
-        <ul>
-            <li><strong>Apple Announces "Apple Intelligence":</strong> At its WWDC event, Apple officially unveiled its suite of AI features, named "Apple Intelligence." It will be deeply integrated into iOS 18, iPadOS 18, and macOS Sequoia. Key features include an upgraded, context-aware Siri, system-wide writing tools (rewriting, summarizing), and image generation. Notably, Apple announced a partnership to integrate OpenAI's ChatGPT for more complex queries.</li>
-            <li><strong>Perplexity Unveils "Pages":</strong> AI search engine Perplexity has launched a new feature called Pages, which allows users to convert their search queries and research into structured, shareable articles, reports, or guides. The tool automatically organizes information, cites sources, and allows for customization, positioning itself as a competitor to traditional content creation workflows.</li>
-             <li><strong>Elon Musk Threatens Apple Ban:</strong> Following Apple's announcement of its OpenAI integration, Elon Musk stated he would ban Apple devices from his companies (Tesla, SpaceX, etc.) if ChatGPT is integrated at the OS level. He cited major security risks, sparking a wide debate on data privacy and the security of on-device vs. cloud-based AI processing.</li>
-        </ul>
+        <!-- AI Developments Section -->
+        <div class="section">
+            <h2>Top AI Developments (Last 24 Hours)</h2>
+            <ul>
+                <li><strong>Microsoft Build Keynote:</strong> Microsoft unveiled "Team Copilot," an evolution of its AI assistant that can act as a meeting facilitator and project manager within Microsoft Teams. They also announced new "Copilot+ PCs" with advanced AI hardware.</li>
+                <li><strong>Google's Veo & Imagen 3:</strong> Following its recent I/O event, Google released more technical details and demos of Veo, its new text-to-video model designed to compete with OpenAI's Sora, and Imagen 3, its most advanced text-to-image model yet, promising unprecedented photorealism and text rendering.</li>
+                <li><strong>Scarlett Johansson vs. OpenAI:</strong> Actress Scarlett Johansson released a statement claiming that OpenAI's new "Sky" voice assistant sounds "eerily similar" to her own, after she had previously declined an offer to voice it. OpenAI has since paused the use of the Sky voice.</li>
+                <li><strong>Perplexity's New Feature:</strong> AI-native search engine Perplexity launched "Pages," a new feature that allows users to generate and publish comprehensive, well-structured articles and guides on any topic from a simple prompt, complete with citations and media.</li>
+            </ul>
+        </div>
 
     </div>
 </body>
