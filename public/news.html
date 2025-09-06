@@ -8,184 +8,162 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #121212;
-            color: #e0e0e0;
-            line-height: 1.6;
+            background-color: #f0f2f5;
+            color: #1c1e21;
             margin: 0;
             padding: 20px;
         }
         .container {
             max-width: 900px;
-            margin: auto;
-            background-color: #1e1e1e;
-            padding: 25px 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+        }
+        h1, h2, h3 {
+            color: #050505;
+            border-bottom: 2px solid #e7e9ec;
+            padding-bottom: 10px;
         }
         h1 {
-            color: #ffffff;
             text-align: center;
-            border-bottom: 2px solid #444;
-            padding-bottom: 15px;
-            margin-top: 0;
-        }
-        h2 {
-            color: #bb86fc;
-            border-bottom: 1px solid #333;
-            padding-bottom: 8px;
-            margin-top: 30px;
-        }
-        .timestamp {
-            text-align: center;
-            color: #999;
-            margin-top: -10px;
-            margin-bottom: 25px;
-            font-size: 0.9em;
-        }
-        .card {
-            background-color: #2a2a2a;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-        }
-        .weather-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-        .weather-item {
-            background: #333;
-            padding: 15px;
-            border-radius: 6px;
-        }
-        .weather-item strong {
-            display: block;
-            color: #bb86fc;
-            font-size: 1.1em;
+            font-size: 2em;
             margin-bottom: 5px;
         }
-        .positive {
-            color: #4CAF50;
+        h2 {
+            font-size: 1.5em;
+            margin-top: 30px;
         }
-        .negative {
-            color: #F44336;
+        h3 {
+            font-size: 1.2em;
+            border-bottom: none;
+            margin-top: 20px;
+            color: #333;
+        }
+        p, li {
+            line-height: 1.6;
+            font-size: 1em;
         }
         ul {
-            padding-left: 20px;
+            list-style-type: none;
+            padding-left: 0;
         }
         li {
+            background: #f9f9f9;
+            border-left: 4px solid #007bff;
             margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 4px;
         }
-        .market-item {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #333;
+        .meta-info {
+            text-align: center;
+            color: #606770;
+            font-size: 0.9em;
+            margin-bottom: 30px;
         }
-        .market-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
+        .indicator-group {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            flex-wrap: wrap;
         }
-        .market-item h3 {
-            margin-top: 0;
-            margin-bottom: 8px;
-            color: #e0e0e0;
+        .indicator {
+            flex-basis: 45%;
+            padding: 15px;
+            margin: 5px;
+            border-radius: 5px;
+            background-color: #f7f7f7;
         }
-        strong {
-            color: #b3b3b3;
+        .indicator .value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #0056b3;
         }
+         .indicator .change {
+            font-size: 1em;
+            font-weight: bold;
+        }
+        .up { color: #28a745; }
+        .down { color: #dc3545; }
+        .neutral { color: #6c757d; }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>Daily Intelligence Briefing</h1>
-        <p class="timestamp">
-            Generated on: 
-            <script>
-                document.write(new Date().toLocaleString("es-AR", {
-                    timeZone: "America/Argentina/Buenos_Aires",
-                    year: 'numeric', month: 'long', day: 'numeric',
-                    hour: '2-digit', minute: '2-digit', second: '2-digit'
-                }));
-            </script>
+        <p class="meta-info" id="generation-time">
+            Generated on: Tuesday, May 21, 2024 at 11:35:14 ART
         </p>
 
-        <div class="card">
+        <section id="weather">
             <h2>Today's Weather Forecast</h2>
-            <div class="weather-grid">
-                <div class="weather-item">
-                    <strong>Temperature</strong>
-                    <span>Min: 12°C / Max: 19°C</span>
-                </div>
-                <div class="weather-item">
-                    <strong>Precipitation</strong>
-                    <span>10% chance of showers</span>
-                </div>
-                <div class="weather-item">
-                    <strong>Alerts</strong>
-                    <span>No active alerts</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2>JP Morgan: 24-Hour News Digest</h2>
             <ul>
-                <li><strong>Global Markets:</strong> JP Morgan strategists noted that while inflation remains a concern, strong corporate earnings are providing a supportive backdrop for equities. They advise a balanced approach, highlighting potential volatility ahead of upcoming central bank meetings.</li>
-                <li><strong>Work & Culture:</strong> A recent report highlighted JP Morgan's ongoing "return-to-office" push for managing directors, reinforcing its stance on in-person collaboration for senior leadership to foster mentorship and client engagement.</li>
-                <li><strong>Argentina Operations:</strong> The firm's local research team released an analysis on Argentina's latest inflation data, suggesting that while the monthly rate is decreasing, underlying pressures persist. They maintain a cautious outlook on the peso's short-term stability.</li>
-                <li><strong>Technology & Fintech:</strong> The bank announced a strategic investment in a European fintech firm specializing in AI-driven compliance solutions, signaling its continued focus on leveraging technology to enhance regulatory processes and reduce operational risk.</li>
+                <li><strong>Temperature:</strong> Min: 11°C / Max: 17°C</li>
+                <li><strong>Precipitation:</strong> 40% chance of isolated showers, mainly in the afternoon.</li>
+                <li><strong>Alerts:</strong> No alerts in effect.</li>
             </ul>
-        </div>
-        
-        <div class="card">
-            <h2>Argentine Economic Indicators</h2>
-            <div class="market-item">
-                <h3>Dólar Blue</h3>
-                <p><strong>Current Price:</strong> Compra: $1,280 / Venta: $1,300</p>
-                <p><strong>Recent Changes:</strong> The price has seen a slight increase in the last 24 hours, continuing a trend of volatility after a period of relative calm. The gap with the official dollar remains a key focus for the market.</p>
-                <p><strong>Projection:</strong> Analysts expect continued pressure on the blue dollar, influenced by inflation expectations and upcoming political/economic announcements. A stable price will largely depend on the Central Bank's ability to accumulate reserves and anchor expectations.</p>
-            </div>
-            <div class="market-item">
-                <h3>Riesgo País (Country Risk)</h3>
-                <p><strong>Current Value:</strong> ~1,235 points</p>
-                <p><strong>Recent Changes:</strong> Country risk has slightly decreased, reflecting positive market sentiment following recent successful debt auctions and fiscal discipline signals from the government. It remains well below its yearly highs.</p>
-                <p><strong>Projection:</strong> The trend will heavily depend on progress with IMF negotiations and the implementation of structural reforms. A continued reduction is key to Argentina regaining access to international credit markets.</p>
-            </div>
-        </div>
+        </section>
 
-        <div class="card">
-            <h2>Market Updates</h2>
-            <div class="market-item">
-                <h3>$SPY (S&P 500 ETF)</h3>
-                <p><strong>Price:</strong> $547.80 <span class="positive">(+0.28%)</span></p>
-                <p><strong>Analysis:</strong> The market shows cautious optimism, grinding higher on the back of strong tech earnings. Sentiment is neutral-to-bullish, but the RSI is approaching overbought territory, suggesting a potential for a short-term pullback. Key drivers are inflation data and Federal Reserve commentary on interest rates.</p>
-            </div>
-            <div class="market-item">
-                <h3>$BTC (Bitcoin)</h3>
-                <p><strong>Price:</strong> $67,850 <span class="negative">(-1.55%)</span></p>
-                <p><strong>Analysis:</strong> Bitcoin is facing resistance around the $70k level, experiencing a minor pullback. Sentiment is mixed, with profit-taking by short-term holders being a primary factor. Market indicators show a consolidation phase. Continued inflows into Bitcoin ETFs are a positive long-term signal, but macroeconomic uncertainty is causing short-term headwinds.</p>
-            </div>
-            <div class="market-item">
-                <h3>$ETH (Ethereum)</h3>
-                <p><strong>Price:</strong> $3,515 <span class="negative">(-2.10%)</span></p>
-                <p><strong>Analysis:</strong> Ethereum is underperforming Bitcoin slightly, following the broader crypto market dip. The initial hype from the spot ETF approval has subsided, and the market is now awaiting actual launch and inflow data. The RSI has cooled off, moving away from overbought conditions. The movement is largely correlated with Bitcoin's price action and overall market risk sentiment.</p>
-            </div>
-        </div>
+        <section id="jpmorgan-news">
+            <h2>JP Morgan: Latest 24hs News</h2>
+            <ul>
+                <li><strong>Global Strategy:</strong> JPMorgan strategists have reiterated their cautious stance on the market, warning that elevated investor positioning and high valuations suggest limited near-term upside for equities. They advise against chasing the recent rally, citing potential economic headwinds.</li>
+                <li><strong>Workforce & AI:</strong> The bank continues its push into Artificial Intelligence, with ongoing hiring for AI and machine learning roles. Internally, there's a focus on using AI to enhance fraud detection and improve operational efficiency, impacting how various teams work.</li>
+                <li><strong>Argentina Outlook:</strong> JP Morgan's latest emerging markets report noted improvements in Argentina's fiscal accounts and a reduction in inflation expectations. However, it maintains a 'wait-and-see' approach regarding the long-term sustainability of reforms and the lifting of capital controls.</li>
+                <li><strong>Executive Commentary:</strong> In a recent interview, a senior executive highlighted the bank's focus on private credit as a major growth area, competing with asset managers for lending opportunities to mid-to-large-sized companies globally.</li>
+            </ul>
+        </section>
 
-        <div class="card">
+        <section id="argentina-economy">
+            <h2>Argentinian Economic Indicators</h2>
+            <div class="indicator-group">
+                <div class="indicator">
+                    <h3>Dólar Blue</h3>
+                    <p class="value">$1,210 / $1,230</p>
+                    <p class="change up">(+$20 from previous close)</p>
+                    <p>The parallel exchange rate jumped significantly, widening the gap with the official rate. Market analysts attribute the rise to increased demand amid ongoing economic uncertainty and anticipation of future policy changes.</p>
+                </div>
+                <div class="indicator">
+                    <h3>Riesgo País (Country Risk)</h3>
+                    <p class="value">1,215 pb</p>
+                    <p class="change down">(-22 points)</p>
+                    <p>Country risk continues its downward trend, falling to its lowest level in years. The positive movement reflects investor optimism following successful debt negotiations and the government's strong fiscal adjustment measures.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="market-analysis">
+            <h2>Market Analysis</h2>
+            
+            <h3>$SPY (S&P 500 ETF)</h3>
+            <ul>
+                <li><strong>Price:</strong> $530.25 <span class="up">(+0.15%)</span></li>
+                <li><strong>Analysis:</strong> The market is showing slight gains in a low-volatility environment as investors await comments from Federal Reserve officials this week for clues on future interest rate policy. Sentiment is cautiously optimistic, with technical indicators like the RSI suggesting neutral to slightly overbought conditions. Corporate earnings season winding down leaves macroeconomic data as the primary market driver.</li>
+            </ul>
+
+            <h3>$BTC (Bitcoin)</h3>
+            <ul>
+                <li><strong>Price:</strong> $71,250.40 <span class="up">(+6.8%)</span></li>
+                <li><strong>Analysis:</strong> Bitcoin surged above the $71k mark, driven by renewed optimism around the potential approval of a spot Ethereum ETF in the U.S. This has created a "risk-on" sentiment across the crypto market. The Fear & Greed Index has shifted firmly into "Greed," indicating strong bullish momentum. Resistance is now eyed at the previous all-time high.</li>
+            </ul>
+
+            <h3>$ETH (Ethereum)</h3>
+            <ul>
+                <li><strong>Price:</strong> $3,785.15 <span class="up">(+21.5%)</span></li>
+                <li><strong>Analysis:</strong> Ethereum has massively outperformed the market following reports that the SEC may be leaning towards approving spot ETH ETFs. Bloomberg analysts raised their approval odds from 25% to 75%, causing a short squeeze and a surge in buying pressure. This regulatory news is the sole driver of the dramatic upward movement, overriding other technical and market indicators.</li>
+            </ul>
+        </section>
+
+        <section id="ai-developments">
             <h2>Top AI Developments (Last 24 Hours)</h2>
             <ul>
-                <li><strong>Perplexity Pages Launch:</strong> AI search engine Perplexity launched "Pages," a new feature that allows users to instantly generate and publish comprehensive, well-structured articles and reports on any topic by curating information from its search results. This positions it as a direct competitor to traditional content creation tools.</li>
-                <li><strong>Apple Intelligence Details Emerge:</strong> Following its WWDC announcement, more technical details about Apple Intelligence have surfaced. Reports highlight its on-device processing capabilities for privacy and its "Private Cloud Compute" system, which securely handles more complex queries in the cloud without storing user data, setting a new standard for privacy in consumer AI.</li>
-                <li><strong>New Open-Source Model Gains Traction:</strong> A new, highly efficient small language model (SLM) named "Aura-7B" was released on Hugging Face. It is gaining significant attention for its strong performance on reasoning benchmarks while requiring significantly less computational power than models of similar size, making it ideal for on-device and specialized applications.</li>
+                <li><strong>Microsoft Build Announcements:</strong> Microsoft unveiled its new "Copilot+ PCs," a category of AI-native Windows computers featuring powerful NPUs (Neural Processing Units). These devices will enable advanced on-device AI features like "Recall," which lets users search for anything they've ever seen on their screen.</li>
+                <li><strong>Google's Veo & Imagen 3:</strong> Following its I/O conference, Google is providing more details on its new generative models. Veo, its most capable text-to-video model, is being previewed to select creators, aiming to compete with OpenAI's Sora. Imagen 3, its new text-to-image model, is also being highlighted for its improved ability to render text and reduce artifacts.</li>
+                <li><strong>Scarlett Johansson vs. OpenAI:</strong> Actress Scarlett Johansson released a statement claiming that OpenAI's new "Sky" voice assistant sounds "eerily similar" to her own, after she had previously declined an offer to voice the system. OpenAI has paused the use of the Sky voice while addressing the concerns, creating a major public discourse on AI ethics and personality rights.</li>
             </ul>
-        </div>
-
+        </section>
     </div>
-
 </body>
 </html>
 ```
