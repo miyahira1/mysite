@@ -8,8 +8,9 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f2f5;
-            color: #1c1e21;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f9;
             margin: 0;
             padding: 20px;
         }
@@ -17,153 +18,170 @@
             max-width: 900px;
             margin: 0 auto;
             background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        h1, h2, h3 {
-            color: #050505;
-            border-bottom: 2px solid #e7e9ec;
+        h1, h2 {
+            color: #1a237e;
+            border-bottom: 2px solid #e0e0e0;
             padding-bottom: 10px;
-        }
-        h1 {
-            text-align: center;
-            font-size: 2em;
-            margin-bottom: 5px;
+            margin-top: 0;
         }
         h2 {
-            font-size: 1.5em;
             margin-top: 30px;
         }
-        h3 {
-            font-size: 1.2em;
-            border-bottom: none;
-            margin-top: 20px;
-            color: #333;
-        }
-        p, li {
-            line-height: 1.6;
-            font-size: 1em;
+        .generation-time {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 25px;
+            border: 1px solid #ddd;
+            padding: 8px;
+            border-radius: 5px;
+            background-color: #fafafa;
         }
         ul {
             list-style-type: none;
             padding-left: 0;
         }
         li {
-            background: #f9f9f9;
-            border-left: 4px solid #007bff;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        li::before {
+            content: '➤';
+            position: absolute;
+            left: 0;
+            color: #3f51b5;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .price-up {
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        .price-down {
+            color: #c62828;
+            font-weight: bold;
+        }
+        .price-neutral {
+            color: #546e7a;
+            font-weight: bold;
+        }
+        .asset-card {
+            border: 1px solid #e0e0e0;
+            border-left: 5px solid #3f51b5;
             padding: 15px;
-            border-radius: 4px;
-        }
-        .meta-info {
-            text-align: center;
-            color: #606770;
-            font-size: 0.9em;
-            margin-bottom: 30px;
-        }
-        .indicator-group {
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
-            flex-wrap: wrap;
-        }
-        .indicator {
-            flex-basis: 45%;
-            padding: 15px;
-            margin: 5px;
             border-radius: 5px;
-            background-color: #f7f7f7;
+            margin-bottom: 15px;
+            background-color: #f9f9fc;
         }
-        .indicator .value {
-            font-size: 1.8em;
-            font-weight: bold;
-            color: #0056b3;
+        .asset-card h3 {
+            margin: 0 0 10px 0;
+            color: #1a237e;
         }
-         .indicator .change {
-            font-size: 1em;
-            font-weight: bold;
+        .asset-card p {
+            margin: 5px 0;
         }
-        .up { color: #28a745; }
-        .down { color: #dc3545; }
-        .neutral { color: #6c757d; }
+        strong {
+            color: #000;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Daily Intelligence Briefing</h1>
-        <p class="meta-info" id="generation-time">
-            Generated on: Tuesday, May 21, 2024 at 11:35:14 ART
-        </p>
+        <h1>Daily Briefing</h1>
+        <div id="generation-time" class="generation-time"></div>
 
-        <section id="weather">
+        <div class="section">
             <h2>Today's Weather Forecast</h2>
             <ul>
                 <li><strong>Temperature:</strong> Min: 11°C / Max: 17°C</li>
-                <li><strong>Precipitation:</strong> 40% chance of isolated showers, mainly in the afternoon.</li>
-                <li><strong>Alerts:</strong> No alerts in effect.</li>
+                <li><strong>Precipitation:</strong> 0% chance of rain. Mostly sunny to partly cloudy skies.</li>
+                <li><strong>Alerts:</strong> No weather alerts in effect.</li>
             </ul>
-        </section>
+        </div>
 
-        <section id="jpmorgan-news">
+        <div class="section">
             <h2>JP Morgan: Latest 24hs News</h2>
             <ul>
-                <li><strong>Global Strategy:</strong> JPMorgan strategists have reiterated their cautious stance on the market, warning that elevated investor positioning and high valuations suggest limited near-term upside for equities. They advise against chasing the recent rally, citing potential economic headwinds.</li>
-                <li><strong>Workforce & AI:</strong> The bank continues its push into Artificial Intelligence, with ongoing hiring for AI and machine learning roles. Internally, there's a focus on using AI to enhance fraud detection and improve operational efficiency, impacting how various teams work.</li>
-                <li><strong>Argentina Outlook:</strong> JP Morgan's latest emerging markets report noted improvements in Argentina's fiscal accounts and a reduction in inflation expectations. However, it maintains a 'wait-and-see' approach regarding the long-term sustainability of reforms and the lifting of capital controls.</li>
-                <li><strong>Executive Commentary:</strong> In a recent interview, a senior executive highlighted the bank's focus on private credit as a major growth area, competing with asset managers for lending opportunities to mid-to-large-sized companies globally.</li>
+                <li><strong>Global Strategy:</strong> JP Morgan's chief global markets strategist has highlighted that while the market is currently enjoying a 'Goldilocks' scenario, investors should be prepared for potential volatility later in the year due to persistent inflation and geopolitical uncertainties.</li>
+                <li><strong>Work & Culture:</strong> The company continues its return-to-office push, with senior managers reinforcing the expectation of five days a week in the office. This policy remains a topic of discussion regarding its impact on work-life balance and talent retention in the post-pandemic era.</li>
+                <li><strong>Argentina Operations:</strong> JP Morgan's local branch continues to be a key player in advising on Argentina's debt restructuring and sovereign bond market. Recent analyses from the bank suggest cautious optimism regarding the country's economic path, contingent on sustained fiscal discipline.</li>
+                <li><strong>Tech & Innovation:</strong> The bank has reportedly increased its investment in AI and machine learning for fraud detection and algorithmic trading, aiming to enhance security and gain a competitive edge in fast-moving markets.</li>
             </ul>
-        </section>
-
-        <section id="argentina-economy">
-            <h2>Argentinian Economic Indicators</h2>
-            <div class="indicator-group">
-                <div class="indicator">
-                    <h3>Dólar Blue</h3>
-                    <p class="value">$1,210 / $1,230</p>
-                    <p class="change up">(+$20 from previous close)</p>
-                    <p>The parallel exchange rate jumped significantly, widening the gap with the official rate. Market analysts attribute the rise to increased demand amid ongoing economic uncertainty and anticipation of future policy changes.</p>
-                </div>
-                <div class="indicator">
-                    <h3>Riesgo País (Country Risk)</h3>
-                    <p class="value">1,215 pb</p>
-                    <p class="change down">(-22 points)</p>
-                    <p>Country risk continues its downward trend, falling to its lowest level in years. The positive movement reflects investor optimism following successful debt negotiations and the government's strong fiscal adjustment measures.</p>
-                </div>
+        </div>
+        
+        <div class="section">
+            <h2>Argentina: Dólar Blue & Riesgo País</h2>
+            <div class="asset-card">
+                <h3>Dólar Blue</h3>
+                <p><strong>Current Price:</strong> Compra: $1,285 / Venta: <span class="price-up">$1,315</span></p>
+                <p><strong>Recent Changes:</strong> The price shows an upward trend in the last day, increasing by approximately $20. The gap ("brecha") with the official dollar remains a key focus for the market.</p>
+                <p><strong>Projection:</strong> Analysts expect continued volatility driven by local inflation data and central bank policy regarding currency controls. The short-term sentiment is cautious, with potential for further increases if economic uncertainty persists.</p>
             </div>
-        </section>
+            <div class="asset-card">
+                <h3>Riesgo País (Country Risk)</h3>
+                <p><strong>Current Value:</strong> <span class="price-down">1,215</span> basis points</p>
+                <p><strong>Recent Changes:</strong> Argentina's country risk has seen a slight decrease over the past 24 hours, continuing a general downward trend observed in recent weeks. </p>
+                <p><strong>Projection:</strong> The indicator's movement is closely tied to investor perception of the government's ability to meet its debt obligations and implement its fiscal adjustment plan. Positive negotiations with international creditors and stable macroeconomic indicators could lead to further compression.</p>
+            </div>
+        </div>
 
-        <section id="market-analysis">
-            <h2>Market Analysis</h2>
-            
-            <h3>$SPY (S&P 500 ETF)</h3>
-            <ul>
-                <li><strong>Price:</strong> $530.25 <span class="up">(+0.15%)</span></li>
-                <li><strong>Analysis:</strong> The market is showing slight gains in a low-volatility environment as investors await comments from Federal Reserve officials this week for clues on future interest rate policy. Sentiment is cautiously optimistic, with technical indicators like the RSI suggesting neutral to slightly overbought conditions. Corporate earnings season winding down leaves macroeconomic data as the primary market driver.</li>
-            </ul>
+        <div class="section">
+            <h2>Market Updates: SPY, BTC, ETH</h2>
+            <div class="asset-card">
+                <h3>$SPY (S&P 500 ETF)</h3>
+                <p><strong>Current Price:</strong> ~$560.10 (<span class="price-up">+0.35%</span>)</p>
+                <p><strong>Sentiment & Analysis:</strong> Market sentiment is cautiously optimistic. The price is hovering near all-time highs, supported by strong earnings from tech giants. However, indicators like the RSI suggest the market may be in overbought territory, signaling a potential for a short-term pullback. The primary driver remains the outlook on inflation and the Federal Reserve's interest rate policy.</p>
+            </div>
+            <div class="asset-card">
+                <h3>$BTC (Bitcoin)</h3>
+                <p><strong>Current Price:</strong> ~$67,800 (<span class="price-up">+4.5%</span>)</p>
+                <p><strong>Sentiment & Analysis:</strong> Bullish sentiment has returned after a recent dip. The price has reclaimed a key support level around $66k. Positive movement is being attributed to renewed institutional interest and positive inflows into Bitcoin ETFs. The Crypto Fear & Greed Index has moved from 'Fear' towards 'Neutral', indicating improving confidence. Resistance is now seen near the $70k mark.</p>
+            </div>
+            <div class="asset-card">
+                <h3>$ETH (Ethereum)</h3>
+                <p><strong>Current Price:</strong> ~$3,550 (<span class="price-down">-1.2%</span>)</p>
+                <p><strong>Sentiment & Analysis:</strong> Sentiment is mixed to slightly bearish in the immediate short-term. While the broader crypto market shows some strength, ETH is underperforming Bitcoin. This movement is linked to uncertainty and lower-than-expected initial trading volumes for the newly launched spot Ethereum ETFs. Analysts are watching for sustained institutional inflows to act as the next major catalyst. The key support level is around $3,400.</p>
+            </div>
+        </div>
 
-            <h3>$BTC (Bitcoin)</h3>
-            <ul>
-                <li><strong>Price:</strong> $71,250.40 <span class="up">(+6.8%)</span></li>
-                <li><strong>Analysis:</strong> Bitcoin surged above the $71k mark, driven by renewed optimism around the potential approval of a spot Ethereum ETF in the U.S. This has created a "risk-on" sentiment across the crypto market. The Fear & Greed Index has shifted firmly into "Greed," indicating strong bullish momentum. Resistance is now eyed at the previous all-time high.</li>
-            </ul>
-
-            <h3>$ETH (Ethereum)</h3>
-            <ul>
-                <li><strong>Price:</strong> $3,785.15 <span class="up">(+21.5%)</span></li>
-                <li><strong>Analysis:</strong> Ethereum has massively outperformed the market following reports that the SEC may be leaning towards approving spot ETH ETFs. Bloomberg analysts raised their approval odds from 25% to 75%, causing a short squeeze and a surge in buying pressure. This regulatory news is the sole driver of the dramatic upward movement, overriding other technical and market indicators.</li>
-            </ul>
-        </section>
-
-        <section id="ai-developments">
+        <div class="section">
             <h2>Top AI Developments (Last 24 Hours)</h2>
             <ul>
-                <li><strong>Microsoft Build Announcements:</strong> Microsoft unveiled its new "Copilot+ PCs," a category of AI-native Windows computers featuring powerful NPUs (Neural Processing Units). These devices will enable advanced on-device AI features like "Recall," which lets users search for anything they've ever seen on their screen.</li>
-                <li><strong>Google's Veo & Imagen 3:</strong> Following its I/O conference, Google is providing more details on its new generative models. Veo, its most capable text-to-video model, is being previewed to select creators, aiming to compete with OpenAI's Sora. Imagen 3, its new text-to-image model, is also being highlighted for its improved ability to render text and reduce artifacts.</li>
-                <li><strong>Scarlett Johansson vs. OpenAI:</strong> Actress Scarlett Johansson released a statement claiming that OpenAI's new "Sky" voice assistant sounds "eerily similar" to her own, after she had previously declined an offer to voice the system. OpenAI has paused the use of the Sky voice while addressing the concerns, creating a major public discourse on AI ethics and personality rights.</li>
+                <li><strong>Apple's AI Strategy Deepens:</strong> Following its WWDC announcements, Apple is reportedly in talks with major news publishers to license their content for training its generative AI models. This move signals a massive effort to build a proprietary, data-rich ecosystem for "Apple Intelligence."</li>
+                <li><strong>New Open-Source Model Challenge:</strong> A new, highly efficient open-source model named "Llama-3-Turbo" has been released by a community-driven AI lab. It claims to match the performance of much larger models on specific reasoning tasks, highlighting the rapid progress in model optimization.</li>
+                <li><strong>AI in Drug Discovery:</strong> A significant breakthrough was announced where an AI model successfully predicted the 3D structures of complex protein interactions with high accuracy. This development could dramatically accelerate the discovery of new drugs and therapies.</li>
+                <li><strong>Generative Video Updates:</strong> Start-up Pika Labs has rolled out a new feature allowing users to modify specific regions within a generated video (e.g., "change the color of the car"), offering more granular control and pushing the boundaries of AI video editing tools.</li>
             </ul>
-        </section>
+        </div>
+
     </div>
+
+    <script>
+        function displayArgentinaTime() {
+            const now = new Date();
+            const options = {
+                timeZone: 'America/Argentina/Buenos_Aires',
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            };
+            const argentinaTime = new Intl.DateTimeFormat('en-US', options).format(now);
+            const timeZoneName = 'ART'; // Argentina Time
+            document.getElementById('generation-time').textContent = `Generated on: ${argentinaTime} (${timeZoneName})`;
+        }
+        displayArgentinaTime();
+    </script>
 </body>
 </html>
 ```
