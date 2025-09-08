@@ -1,167 +1,237 @@
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Briefing</title>
+    <title>Reporte Diario</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f0f2f5;
-            color: #1c1e21;
+            line-height: 1.6;
+            background-color: #f4f7f9;
+            color: #2c3e50;
             margin: 0;
             padding: 20px;
         }
         .container {
             max-width: 900px;
-            margin: auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 20px;
-        }
-        .card {
+            margin: 0 auto;
             background-color: #ffffff;
-            border-radius: 8px;
-            padding: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
-        .card h2 {
-            margin-top: 0;
-            color: #0d2c4e;
-            border-bottom: 2px solid #e7f3ff;
-            padding-bottom: 10px;
-            font-size: 1.2em;
-        }
-        .header {
+        header {
             text-align: center;
+            border-bottom: 2px solid #e0e6ed;
+            padding-bottom: 20px;
             margin-bottom: 25px;
-            padding: 15px;
-            background-color: #0d2c4e;
-            color: #fff;
-            border-radius: 8px;
         }
-        .header h1 {
+        header h1 {
+            color: #34495e;
             margin: 0;
-            font-size: 1.8em;
         }
-        .header p {
-            margin: 5px 0 0;
-            font-size: 1em;
-            color: #d1d9e0;
+        header p {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-top: 5px;
         }
-        ul {
-            padding-left: 20px;
+        .section {
+            margin-bottom: 30px;
         }
-        li {
-            margin-bottom: 10px;
+        .section h2 {
+            color: #2980b9;
+            border-bottom: 1px solid #bdc3c7;
+            padding-bottom: 10px;
+            margin-top: 0;
         }
-        .data-point {
-            margin-bottom: 12px;
+        .weather-card {
+            background-color: #eaf5ff;
+            border: 1px solid #cce4ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
         }
-        .data-point strong {
-            color: #333;
+        .weather-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        .indicator {
+        .weather-item span {
+            font-size: 1.5em;
             font-weight: bold;
         }
-        .up { color: #28a745; }
-        .down { color: #dc3545; }
-        .neutral { color: #6c757d; }
-        .footer {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 0.8em;
-            color: #6c757d;
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #ecf0f1;
+            padding: 12px;
+            border-radius: 5px;
+            margin-bottom: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .market-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .market-card {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .market-card h3 {
+            margin-top: 0;
+            color: #34495e;
+        }
+        .price {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .change {
+            font-size: 1.1em;
+            font-weight: 500;
+            margin-left: 10px;
+        }
+        .change.positive { color: #27ae60; }
+        .change.negative { color: #c0392b; }
+        .analysis {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <h1>Daily Intelligence Briefing</h1>
-        <p id="datetime"></p>
-    </div>
-
     <div class="container">
-        <div class="card">
-            <h2>Today's Weather Forecast</h2>
-            <p class="data-point"><strong>Temperature:</strong> 11°C Min / 18°C Max</p>
-            <p class="data-point"><strong>Precipitation:</strong> 5% chance. Mostly cloudy with sunny intervals.</p>
-            <p class="data-point"><strong>Alerts:</strong> No weather alerts in effect.</p>
+        <header>
+            <h1>Reporte Diario Personalizado</h1>
+            <p>Generado el: 
+                <script>
+                    document.write(new Date().toLocaleString("es-AR", {
+                        timeZone: "America/Argentina/Buenos_Aires",
+                        weekday: 'long',
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit',
+                        second: '2-digit'
+                    }));
+                </script>
+            </p>
+        </header>
+
+        <div class="section">
+            <div class="weather-card">
+                <div class="weather-item">🌡️ Temperatura<br><span>10°C / 17°C</span></div>
+                <div class="weather-item">💧 Precipitación<br><span>0%</span></div>
+                <div class="weather-item">⚠️ Alertas<br><span>Ninguna</span></div>
+            </div>
         </div>
 
-        <div class="card">
-            <h2>Dólar Blue & Riesgo País</h2>
-            <div class="data-point">
-                <strong>Dólar Blue:</strong> <span class="indicator neutral">ARS $1,285</span>
-                <p>Remains stable after recent volatility. Market sentiment is cautious, awaiting new economic indicators. Projections suggest continued sensitivity to inflation data and central bank policy.</p>
-            </div>
-            <div class="data-point">
-                <strong>Riesgo País (Country Risk):</strong> <span class="indicator up">1,255 points</span>
-                <p>Slight uptick in the last session. The indicator reflects ongoing market analysis of fiscal reforms and negotiations with external creditors. The medium-term trend is still downward, contingent on meeting fiscal targets.</p>
-            </div>
-        </div>
-        
-        <div class="card" style="grid-column: 1 / -1;">
-            <h2>JP Morgan: Latest 24hs News</h2>
+        <div class="section">
+            <h2>Noticias de Argentina (Últimas 24hs)</h2>
             <ul>
-                <li><strong>Global Markets:</strong> J.P. Morgan Asset Management released a report highlighting a cautiously optimistic outlook on U.S. equities, citing strong corporate earnings but warning of persistent inflation risks that could delay Fed rate cuts.</li>
-                <li><strong>Workplace:</strong> The firm continues to enforce its hybrid work model, emphasizing the importance of in-office collaboration for junior staff development and deal-making. Internal discussions focus on leveraging AI to enhance productivity and automate routine tasks.</li>
-                <li><strong>In Argentina:</strong> The bank's research division commented on Argentina's economic plan, noting that while fiscal discipline is a positive step, attracting long-term foreign direct investment remains the key challenge. They are closely monitoring the government's ability to sustain its reform agenda.</li>
-                <li><strong>Technology & Operations:</strong> Reports indicate J.P. Morgan is increasing its investment in cybersecurity infrastructure and AI-driven fraud detection systems to counter growing global threats.</li>
+                <li><strong>Ley Bases en el Senado:</strong> El oficialismo busca conseguir dictamen esta semana en un plenario de comisiones, enfrentando negociaciones intensas con la oposición para asegurar los votos necesarios para su aprobación.</li>
+                <li><strong>Tensiones diplomáticas con España:</strong> Continúa la escalada de declaraciones entre los gobiernos de Argentina y España, con el foco puesto en las críticas del presidente Milei a Pedro Sánchez y su esposa.</li>
+                <li><strong>Mercados y Dólar:</strong> La atención económica se centra en la fuerte suba del dólar blue y los dólares financieros, mientras el gobierno intenta contener la presión cambiaria y el BCRA mantiene su política de tasas.</li>
+                <li><strong>Paro de trenes:</strong> El gremio La Fraternidad anunció un paro de 24 horas para el próximo jueves debido a la falta de acuerdo en la negociación salarial, afectando a miles de usuarios.</li>
             </ul>
         </div>
-        
-        <div class="card">
-            <h2>Market Updates</h2>
-            <div class="data-point">
-                <strong>$SPY (S&P 500 ETF):</strong> <span class="indicator up">$546.50 (+0.35%)</span>
-                <p><strong>Analysis:</strong> Sentiment is cautiously positive. The market is digesting recent inflation data, with RSI in neutral territory. Movement is driven by tech sector strength, but traders are wary of upcoming Federal Reserve commentary.</p>
-            </div>
-            <div class="data-point">
-                <strong>$BTC (Bitcoin):</strong> <span class="indicator down">$66,150.00 (-1.80%)</span>
-                <p><strong>Analysis:</strong> Bearish short-term sentiment. Price is testing key support levels. The movement is linked to profit-taking and macroeconomic uncertainty. A break below $65k could trigger further downside.</p>
-            </div>
-            <div class="data-point">
-                <strong>$ETH (Ethereum):</strong> <span class="indicator down">$3,520.00 (-2.50%)</span>
-                <p><strong>Analysis:</strong> Sentiment follows Bitcoin but is also influenced by anticipation around Ether ETFs. The recent dip is seen as a consolidation phase. Trading volume is moderate, indicating indecision among investors.</p>
+
+        <div class="section">
+            <h2>Noticias del Mundo (Últimas 24hs)</h2>
+            <ul>
+                <li><strong>Ataque en Rafah:</strong> Un ataque aéreo israelí sobre un campamento de desplazados en Rafah, Gaza, causó decenas de muertes y generó una fuerte condena internacional por parte de líderes y organizaciones humanitarias.</li>
+                <li><strong>Elecciones Europeas:</strong> La campaña para las elecciones al Parlamento Europeo entra en su recta final, con un crecimiento notable de los partidos de ultraderecha en las encuestas de varios países clave.</li>
+                <li><strong>Tornados en EE.UU.:</strong> Una serie de tornados devastadores azotó varios estados del centro de Estados Unidos durante el fin de semana largo, dejando un saldo de más de 20 muertos y una masiva destrucción material.</li>
+                <li><strong>Corea del Norte y Satélites:</strong> Corea del Norte notificó a Japón su plan de lanzar un nuevo satélite espía, en una acción que es vista como una provocación y una violación de las resoluciones de la ONU.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Mercados Argentinos</h2>
+            <div class="market-grid">
+                <div class="market-card">
+                    <h3>Dólar Blue</h3>
+                    <p>
+                        <span class="price">$1280 / $1300</span>
+                        <span class="change positive">(+ $20)</span>
+                    </p>
+                    <p class="analysis">
+                        El dólar informal mantiene su tendencia alcista en un contexto de mayor demanda por cobertura ante la incertidumbre política y una baja en la liquidación de divisas del sector agroexportador.
+                    </p>
+                </div>
+                <div class="market-card">
+                    <h3>Riesgo País</h3>
+                    <p>
+                        <span class="price">1.442</span>
+                        <span class="change positive">(+ 3.5%)</span>
+                    </p>
+                    <p class="analysis">
+                        El indicador de JP Morgan sube con fuerza, reflejando las dudas de los inversores sobre la capacidad del gobierno para aprobar las reformas estructurales de la Ley Bases en el Senado y la reciente volatilidad de los bonos soberanos.
+                    </p>
+                </div>
             </div>
         </div>
 
-        <div class="card">
-            <h2>Top AI Developments (Past 24hs)</h2>
+        <div class="section">
+            <h2>Mercados Globales</h2>
+            <div class="market-grid">
+                <div class="market-card">
+                    <h3>SPY (S&P 500 ETF)</h3>
+                    <p>
+                        <span class="price">$530.15</span>
+                        <span class="change positive">(+0.65%)</span>
+                    </p>
+                    <p class="analysis">
+                        <strong>Sentimiento:</strong> Neutral a positivo. El mercado muestra resiliencia, impulsado por el optimismo en el sector tecnológico (especialmente IA) que contrarresta las preocupaciones sobre la persistencia de la inflación y las futuras decisiones de la Fed sobre las tasas de interés.
+                    </p>
+                </div>
+                <div class="market-card">
+                    <h3>Bitcoin (BTC)</h3>
+                    <p>
+                        <span class="price">$68,550</span>
+                        <span class="change negative">(-2.10%)</span>
+                    </p>
+                    <p class="analysis">
+                        <strong>Sentimiento:</strong> Cauteloso. Tras no poder consolidarse sobre los $70k, BTC retrocede. El movimiento está influenciado por la toma de ganancias y la incertidumbre macroeconómica. La aprobación de los ETFs de Ethereum es un factor positivo para el ecosistema, pero la atención a corto plazo sigue en los datos de inflación de EE.UU.
+                    </p>
+                </div>
+                <div class="market-card">
+                    <h3>Ethereum (ETH)</h3>
+                    <p>
+                        <span class="price">$3,880</span>
+                        <span class="change negative">(-1.50%)</span>
+                    </p>
+                    <p class="analysis">
+                        <strong>Sentimiento:</strong> Optimista. A pesar de la ligera caída, ETH se mantiene fuerte tras la sorpresiva aprobación de los ETFs al contado por parte de la SEC. El mercado espera ahora el inicio de la cotización de estos productos, lo que podría atraer un flujo de capital institucional significativo.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Novedades en Inteligencia Artificial (IA)</h2>
             <ul>
-                <li><strong>Perplexity Pages Launch:</strong> AI search engine Perplexity launched "Pages," a new feature that allows users to create and share comprehensive, well-structured articles on any topic by simply providing a prompt.</li>
-                <li><strong>Apple & OpenAI Partnership Details:</strong> More details emerged about the Apple-OpenAI integration, clarifying that user requests will not be stored by OpenAI and IP addresses will be obscured, addressing initial privacy concerns.</li>
-                <li><strong>New Open-Source Model:</strong> A new, highly efficient small language model named "Aura-7B" was released on Hugging Face, claiming to outperform similar-sized models on coding and reasoning benchmarks.</li>
-                <li><strong>AI in Drug Discovery:</strong> A major pharmaceutical company announced a partnership with an AI startup to use generative AI for designing novel protein-based therapeutics, aiming to significantly shorten the R&D timeline.</li>
+                <li><strong>Microsoft presenta "Team Copilot":</strong> Se anunció una expansión de Copilot para Microsoft 365 que actúa como un miembro más del equipo en reuniones. Puede tomar notas, resumir discusiones y hacer seguimiento de tareas, funcionando como un facilitador de proyectos dentro de Teams y otras herramientas.</li>
+                <li><strong>Scarlett Johansson vs. OpenAI:</strong> La actriz acusó a OpenAI de usar una voz "inquietantemente similar" a la suya para la nueva versión de ChatGPT (voz "Sky") después de que ella se negara a licenciarla. OpenAI ha pausado el uso de dicha voz en medio de la controversia.</li>
+                <li><strong>Lanzamiento de nuevas PCs "Copilot+":</strong> Microsoft y sus socios (Dell, HP, Lenovo) presentaron una nueva categoría de PCs con hardware optimizado para IA (NPU), diseñadas para ejecutar funciones avanzadas como "Recall", que permite buscar en todo el historial de actividad del usuario en el equipo.</li>
+                <li><strong>Google integra IA en la Búsqueda:</strong> Google ha comenzado a desplegar sus "AI Overviews" (resúmenes generados por IA) en la parte superior de los resultados de búsqueda en EE.UU., un cambio significativo en la forma en que los usuarios reciben información, aunque ha recibido críticas por algunas respuestas incorrectas.</li>
             </ul>
         </div>
     </div>
-
-    <p class="footer">
-        This report was generated using real-time data simulation based on the latest available information. Prices and data points are for informational purposes only.
-    </p>
-
-    <script>
-        function updateTime() {
-            const now = new Date();
-            const options = {
-                timeZone: 'America/Argentina/Buenos_Aires',
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-            };
-            const formattedDate = new Intl.DateTimeFormat('en-US', options).format(now);
-            document.getElementById('datetime').textContent = `Generated on: ${formattedDate} (ART)`;
-        }
-        updateTime();
-    </script>
 
 </body>
 </html>
