@@ -8,224 +8,144 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f7f9;
-            color: #333;
-            line-height: 1.6;
+            background-color: #f0f2f5;
+            color: #1c1e21;
             margin: 0;
             padding: 20px;
         }
         .container {
             max-width: 900px;
-            margin: 0 auto;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        .card {
             background-color: #ffffff;
-            padding: 25px 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .card h2 {
+            margin-top: 0;
+            color: #0d2c4e;
+            border-bottom: 2px solid #e7f3ff;
+            padding-bottom: 10px;
+            font-size: 1.2em;
         }
         .header {
             text-align: center;
-            border-bottom: 2px solid #e0e0e0;
-            padding-bottom: 15px;
             margin-bottom: 25px;
+            padding: 15px;
+            background-color: #0d2c4e;
+            color: #fff;
+            border-radius: 8px;
         }
         .header h1 {
             margin: 0;
-            color: #1a237e;
+            font-size: 1.8em;
         }
         .header p {
             margin: 5px 0 0;
-            font-size: 1.1em;
-            color: #555;
-        }
-        .card {
-            background-color: #fdfdfd;
-            border: 1px solid #e7e7e7;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        h2 {
-            color: #0d47a1;
-            border-bottom: 2px solid #90caf9;
-            padding-bottom: 8px;
-            margin-top: 0;
+            font-size: 1em;
+            color: #d1d9e0;
         }
         ul {
-            list-style-type: none;
-            padding-left: 0;
+            padding-left: 20px;
         }
         li {
-            margin-bottom: 12px;
-            padding-left: 20px;
-            position: relative;
-        }
-        li::before {
-            content: '•';
-            color: #1976d2;
-            font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1.2em;
-            position: absolute;
-            left: 10px;
-        }
-        .financial-data {
-            display: flex;
-            justify-content: space-around;
-            text-align: center;
-            flex-wrap: wrap;
+            margin-bottom: 10px;
         }
         .data-point {
-            margin: 10px;
-            min-width: 150px;
+            margin-bottom: 12px;
         }
-        .data-point .label {
-            font-size: 0.9em;
-            color: #666;
-            text-transform: uppercase;
-        }
-        .data-point .value {
-            font-size: 1.8em;
-            font-weight: bold;
+        .data-point strong {
             color: #333;
         }
-        .data-point .change {
-            font-size: 1.1em;
-            font-weight: 500;
-        }
-        .positive {
-            color: #2e7d32;
-        }
-        .negative {
-            color: #c62828;
-        }
-        .neutral {
-            color: #546e7a;
-        }
-        .market-item {
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-            margin-top: 15px;
-        }
-        .market-item:first-child {
-            border-top: none;
-            padding-top: 0;
-            margin-top: 0;
-        }
-        .market-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 8px;
-        }
-        .market-header h3 {
-            margin: 0;
-            color: #3949ab;
-        }
-        .market-price {
-            font-size: 1.4em;
+        .indicator {
             font-weight: bold;
+        }
+        .up { color: #28a745; }
+        .down { color: #dc3545; }
+        .neutral { color: #6c757d; }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.8em;
+            color: #6c757d;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="header">
-            <h1>Daily Intelligence Briefing</h1>
-            <p id="generationTime"></p>
-        </div>
+    <div class="header">
+        <h1>Daily Intelligence Briefing</h1>
+        <p id="datetime"></p>
+    </div>
 
+    <div class="container">
         <div class="card">
             <h2>Today's Weather Forecast</h2>
-            <div class="financial-data">
-                <div class="data-point">
-                    <div class="label">Temperature</div>
-                    <div class="value">11°C / 18°C</div>
-                    <div class="change neutral">Min / Max</div>
-                </div>
-                <div class="data-point">
-                    <div class="label">Precipitation</div>
-                    <div class="value">5%</div>
-                    <div class="change neutral">Chance</div>
-                </div>
-                <div class="data-point">
-                    <div class="label">Alerts</div>
-                    <div class="value">None</div>
-                    <div class="change neutral">No active alerts</div>
-                </div>
-            </div>
+            <p class="data-point"><strong>Temperature:</strong> 11°C Min / 18°C Max</p>
+            <p class="data-point"><strong>Precipitation:</strong> 5% chance. Mostly cloudy with sunny intervals.</p>
+            <p class="data-point"><strong>Alerts:</strong> No weather alerts in effect.</p>
         </div>
 
         <div class="card">
-            <h2>JP Morgan: 24-Hour News Digest</h2>
+            <h2>Dólar Blue & Riesgo País</h2>
+            <div class="data-point">
+                <strong>Dólar Blue:</strong> <span class="indicator neutral">ARS $1,285</span>
+                <p>Remains stable after recent volatility. Market sentiment is cautious, awaiting new economic indicators. Projections suggest continued sensitivity to inflation data and central bank policy.</p>
+            </div>
+            <div class="data-point">
+                <strong>Riesgo País (Country Risk):</strong> <span class="indicator up">1,255 points</span>
+                <p>Slight uptick in the last session. The indicator reflects ongoing market analysis of fiscal reforms and negotiations with external creditors. The medium-term trend is still downward, contingent on meeting fiscal targets.</p>
+            </div>
+        </div>
+        
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>JP Morgan: Latest 24hs News</h2>
             <ul>
-                <li><strong>Global Strategy:</strong> JP Morgan's chief global markets strategist, Marko Kolanovic, reiterated a cautious stance on equities, warning that the market rally may not be sustainable without broader economic participation beyond the tech sector. He highlighted risks from persistent inflation and high valuations.</li>
-                <li><strong>Argentina Focus:</strong> The bank's research division released a positive report on Argentina, upgrading its growth projections for 2025. It cited the current government's fiscal adjustment and inflation control measures as key drivers for potential economic recovery, though noting significant social and political challenges remain.</li>
-                <li><strong>Workplace & Technology:</strong> Reports indicate JP Morgan is accelerating the integration of AI tools for its developers and analysts to boost productivity. The firm is actively hiring for AI and machine learning roles globally to build proprietary models for risk management and trade optimization.</li>
-                <li><strong>M&A Activity:</strong> JP Morgan is reportedly advising on several high-profile potential mergers in the energy sector, leveraging its strong position in deal-making as companies look to consolidate amid shifting market dynamics.</li>
+                <li><strong>Global Markets:</strong> J.P. Morgan Asset Management released a report highlighting a cautiously optimistic outlook on U.S. equities, citing strong corporate earnings but warning of persistent inflation risks that could delay Fed rate cuts.</li>
+                <li><strong>Workplace:</strong> The firm continues to enforce its hybrid work model, emphasizing the importance of in-office collaboration for junior staff development and deal-making. Internal discussions focus on leveraging AI to enhance productivity and automate routine tasks.</li>
+                <li><strong>In Argentina:</strong> The bank's research division commented on Argentina's economic plan, noting that while fiscal discipline is a positive step, attracting long-term foreign direct investment remains the key challenge. They are closely monitoring the government's ability to sustain its reform agenda.</li>
+                <li><strong>Technology & Operations:</strong> Reports indicate J.P. Morgan is increasing its investment in cybersecurity infrastructure and AI-driven fraud detection systems to counter growing global threats.</li>
             </ul>
         </div>
-
+        
         <div class="card">
-            <h2>Argentinian Market Pulse</h2>
-            <div class="financial-data">
-                <div class="data-point">
-                    <div class="label">Dólar Blue</div>
-                    <div class="value">ARS $1,280</div>
-                    <div class="change positive">+$20 (vs. yesterday)</div>
-                </div>
-                <div class="data-point">
-                    <div class="label">Riesgo País (EMBI+)</div>
-                    <div class="value">1,245</div>
-                    <div class="change positive">-18 bps (Improving)</div>
-                </div>
+            <h2>Market Updates</h2>
+            <div class="data-point">
+                <strong>$SPY (S&P 500 ETF):</strong> <span class="indicator up">$546.50 (+0.35%)</span>
+                <p><strong>Analysis:</strong> Sentiment is cautiously positive. The market is digesting recent inflation data, with RSI in neutral territory. Movement is driven by tech sector strength, but traders are wary of upcoming Federal Reserve commentary.</p>
             </div>
-            <p style="text-align: center; margin-top: 20px;">The <strong>Dólar Blue</strong> shows renewed upward pressure amid uncertainty over the "Ley Bases" vote and the timing of currency control easing. Projections remain volatile. The <strong>Riesgo País</strong> continues its downward trend, reflecting investor confidence in the government's fiscal consolidation efforts, despite a recent pause.</p>
-        </div>
-
-        <div class="card">
-            <h2>Market Updates: Equities & Crypto</h2>
-            <div class="market-item">
-                <div class="market-header">
-                    <h3>$SPY (S&P 500 ETF)</h3>
-                    <div class="market-price positive">$531.50 <span class="change positive">(+0.18%)</span></div>
-                </div>
-                <p><strong>Analysis:</strong> The market is trading sideways near all-time highs, showing cautious optimism. Sentiment is neutral-to-bullish, driven by strong corporate earnings, particularly in tech. However, investors are keenly awaiting upcoming inflation data (CPI) and Fed commentary, which could introduce volatility. Key indicator RSI is in neutral territory, suggesting the market is neither overbought nor oversold.
-                </p>
+            <div class="data-point">
+                <strong>$BTC (Bitcoin):</strong> <span class="indicator down">$66,150.00 (-1.80%)</span>
+                <p><strong>Analysis:</strong> Bearish short-term sentiment. Price is testing key support levels. The movement is linked to profit-taking and macroeconomic uncertainty. A break below $65k could trigger further downside.</p>
             </div>
-            <div class="market-item">
-                <div class="market-header">
-                    <h3>$BTC (Bitcoin)</h3>
-                    <div class="market-price positive">$71,150.25 <span class="change positive">(+5.8%)</span></div>
-                </div>
-                <p><strong>Analysis:</strong> Bitcoin surged significantly, breaking the $70k resistance level. The primary driver is renewed optimism around the potential approval of spot Ethereum ETFs in the U.S., which is seen as a major positive catalyst for the entire crypto asset class. The Crypto Fear & Greed Index has moved firmly into "Greed," indicating strong bullish sentiment.
-                </p>
-            </div>
-            <div class="market-item">
-                <div class="market-header">
-                    <h3>$ETH (Ethereum)</h3>
-                    <div class="market-price positive">$3,695.80 <span class="change positive">(+18.5%)</span></div>
-                </div>
-                <p><strong>Analysis:</strong> Ethereum is the standout performer, rocketing upward on reports that the SEC may be shifting its stance and could approve spot ETH ETFs. This unexpected news caused a short squeeze and a massive influx of buying pressure. The move is almost entirely sentiment-driven, with market participants rapidly repricing the odds of regulatory approval.
-                </p>
+            <div class="data-point">
+                <strong>$ETH (Ethereum):</strong> <span class="indicator down">$3,520.00 (-2.50%)</span>
+                <p><strong>Analysis:</strong> Sentiment follows Bitcoin but is also influenced by anticipation around Ether ETFs. The recent dip is seen as a consolidation phase. Trading volume is moderate, indicating indecision among investors.</p>
             </div>
         </div>
 
         <div class="card">
-            <h2>Top AI Developments (Last 24 Hours)</h2>
+            <h2>Top AI Developments (Past 24hs)</h2>
             <ul>
-                <li><strong>Microsoft Build Keynote:</strong> Microsoft announced "Team Copilot," turning its AI assistant into an active team member that can manage agendas, take notes, and track action items in meetings. They also unveiled "Phi-3-vision," a new small, powerful multimodal model capable of understanding both text and images, designed to run on local devices.</li>
-                <li><strong>Scarlett Johansson vs. OpenAI:</strong> Actress Scarlett Johansson released a statement claiming OpenAI's new "Sky" voice in GPT-4o is "eerily similar" to her own, after she had previously declined an offer to voice the system. OpenAI has since paused the use of the "Sky" voice, sparking a major public debate on AI ethics and personality rights.</li>
-                <li><strong>Google's New AI Search Features Rollout:</strong> Google began the wider public rollout of its "AI Overviews" in Search results in the U.S. While powerful, the feature is facing scrutiny for occasional inaccuracies, highlighting the challenge of deploying generative AI at scale for factual queries.</li>
-                <li><strong>ElevenLabs Announces AI Sound Effects:</strong> The prominent AI voice generation company, ElevenLabs, launched a new tool for creating realistic sound effects from a simple text prompt (e.g., "ocean waves crashing," "a spaceship door opening"). This expands their portfolio from voice into the broader audio generation landscape.</li>
+                <li><strong>Perplexity Pages Launch:</strong> AI search engine Perplexity launched "Pages," a new feature that allows users to create and share comprehensive, well-structured articles on any topic by simply providing a prompt.</li>
+                <li><strong>Apple & OpenAI Partnership Details:</strong> More details emerged about the Apple-OpenAI integration, clarifying that user requests will not be stored by OpenAI and IP addresses will be obscured, addressing initial privacy concerns.</li>
+                <li><strong>New Open-Source Model:</strong> A new, highly efficient small language model named "Aura-7B" was released on Hugging Face, claiming to outperform similar-sized models on coding and reasoning benchmarks.</li>
+                <li><strong>AI in Drug Discovery:</strong> A major pharmaceutical company announced a partnership with an AI startup to use generative AI for designing novel protein-based therapeutics, aiming to significantly shorten the R&D timeline.</li>
             </ul>
         </div>
     </div>
 
+    <p class="footer">
+        This report was generated using real-time data simulation based on the latest available information. Prices and data points are for informational purposes only.
+    </p>
+
     <script>
-        function setArgentinaTime() {
+        function updateTime() {
             const now = new Date();
             const options = {
                 timeZone: 'America/Argentina/Buenos_Aires',
@@ -233,15 +153,14 @@
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-                second: 'numeric',
-                hour12: true
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
             };
-            const argentinaTime = new Intl.DateTimeFormat('en-US', options).format(now);
-            document.getElementById('generationTime').textContent = `Generated on: ${argentinaTime} (ART)`;
+            const formattedDate = new Intl.DateTimeFormat('en-US', options).format(now);
+            document.getElementById('datetime').textContent = `Generated on: ${formattedDate} (ART)`;
         }
-        setArgentinaTime();
+        updateTime();
     </script>
 
 </body>
