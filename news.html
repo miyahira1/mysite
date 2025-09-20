@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Argentina Daily Briefing</title>
+    <title>Argentina & World Updates</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 20px;
             line-height: 1.6;
             color: #333;
-            background-color: #f4ffec;
+            background-color: #f4f4f4;
         }
         .container {
             max-width: 900px;
@@ -19,186 +19,135 @@
             background: #fff;
             padding: 30px;
             border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         h1, h2, h3 {
-            color: #2c3e50;
-            border-bottom: 2px solid #e0e0e0;
+            color: #0056b3;
+            border-bottom: 2px solid #eee;
             padding-bottom: 10px;
             margin-top: 30px;
         }
         h1 {
             text-align: center;
-            border-bottom: none;
-            color: #1a5e2a;
-        }
-        .info-box {
-            background-color: #e9f7ef;
-            border-left: 5px solid #4CAF50;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 4px;
+            color: #003366;
+            font-size: 2.2em;
+            border-bottom: 3px solid #0056b3;
+            padding-bottom: 15px;
         }
         ul {
             list-style-type: disc;
             margin-left: 20px;
-            padding: 0;
+            padding-left: 0;
         }
         li {
             margin-bottom: 8px;
         }
-        .news-item {
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 1px dotted #e0e0e0;
-        }
-        .news-item:last-child {
-            border-bottom: none;
-        }
-        .news-item h4 {
-            margin: 0 0 5px 0;
-            color: #34495e;
-        }
-        .news-item p {
+        .datetime {
+            text-align: right;
             font-size: 0.9em;
-            color: #555;
-            margin: 0;
-        }
-        .news-item a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .news-item a:hover {
-            text-decoration: underline;
-        }
-        .financial-update {
+            color: #777;
             margin-bottom: 20px;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-left: 4px solid #007bff;
-            border-radius: 4px;
         }
-        .financial-update h4 {
-            margin-top: 0;
-            color: #007bff;
+        .section {
+            margin-bottom: 25px;
         }
-        .alert {
-            color: #dc3545;
-            font-weight: bold;
+        strong {
+            color: #003366;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Daily Briefing</h1>
+        <h1>Daily Updates</h1>
 
-        <div class="info-box">
-            <p><strong>Generated at:</strong> 2024-05-18 20:01:03 (Argentina Time)</p>
+        <div class="datetime">
+            Generated: <span id="argentinaDateTime"></span>
         </div>
 
-        <h2>Today's Weather Forecast for Capital Federal</h2>
-        <div id="weather-forecast">
+        <div class="section">
+            <h2>Weather Forecast: Capital Federal</h2>
             <ul>
-                <li>Current Conditions: Scattered clouds</li>
-                <li>Temperature: 15.01°C (Min) / 19.33°C (Max)</li>
-                <li>Precipitation: No significant precipitation expected.</li>
-                <li>Alerts: No alerts.</li>
+                <li><strong>Temperature:</strong> Min 16°C / Max 28°C</li>
+                <li><strong>Precipitation:</strong> 10% chance of isolated showers, mostly sunny.</li>
+                <li><strong>Alerts:</strong> No significant alerts.</li>
             </ul>
         </div>
 
-        <h2>Latest 24h News for Argentina</h2>
-        <div id="argentina-news">
-            <div class="news-item">
-                <h4><a href="https://www.infobae.com/deportes/2024/05/18/river-derroto-a-talares-en-cordoba-y-accedio-a-los-16avos-de-final-de-la-copa-argentina/" target="_blank">River derrotó a Talleres en Córdoba y accedió a los 16avos de final de la Copa Argentina</a></h4>
-                <p>El Millonario se impuso por 3-0 en el estadio Malvinas Argentinas de Mendoza con goles de Barco, Mastantuono y Solari. Ahora espera por Temperley o Gimnasia y Tiro de Salta. <br> <em>Source: Infobae</em></p>
-            </div>
-            <div class="news-item">
-                <h4><a href="https://www.infobae.com/deportes/2024/05/18/river-talleres-por-la-copa-argentina-horario-tv-y-formaciones/" target="_blank">River vs. Talleres, por la Copa Argentina: horario, TV y formaciones</a></h4>
-                <p>El Millonario y la T se enfrentan en el estadio Malvinas Argentinas de Mendoza por los 32avos de final del certamen. El ganador se medirá en la próxima instancia con el vencedor de Temperley y Gimnasia y Tiro de Salta. <br> <em>Source: Infobae</em></p>
-            </div>
-            <div class="news-item">
-                <h4><a href="https://www.infobae.com/politica/2024/05/18/el-gobierno-evalua-convocar-a-una-sesion-extraordinaria-para-aprobar-el-paquete-fiscal/" target="_blank">El Gobierno evalúa convocar a una sesión extraordinaria para aprobar el Paquete Fiscal</a></h4>
-                <p>La intención del oficialismo es que la Cámara de Diputados sesione el martes para darle media sanción a los proyectos de Ley de Bases y Puntos de Partida para la Libertad de los Argentinos y de Medidas Fiscales Paliativas y Relevantes. <br> <em>Source: Infobae</em></p>
-            </div>
-            <div class="news-item">
-                <h4><a href="https://www.infobae.com/deportes/2024/05/18/copa-argentina-boca-supero-a-central-norte-de-salta-y-accedio-a-los-16avos-de-final/" target="_blank">Copa Argentina: Boca superó a Central Norte de Salta y accedió a los 16avos de final</a></h4>
-                <p>El Xeneize se impuso por 3-0 en el estadio Madre de Ciudades de Santiago del Estero con goles de Cavani, Merentiel y Zenón. Ahora espera por Almirante Brown o San Martín de Tucumán. <br> <em>Source: Infobae</em></p>
-            </div>
-            <div class="news-item">
-                <h4><a href="https://www.infobae.com/deportes/2024/05/18/copa-argentina-boca-vs-central-norte-de-salta-horario-tv-y-formaciones/" target="_blank">Copa Argentina: Boca vs. Central Norte de Salta: horario, TV y formaciones</a></h4>
-                <p>El Xeneize y el Cuervo se enfrentan en el estadio Madre de Ciudades de Santiago del Estero por los 32avos de final del certamen. El ganador se medirá en la próxima instancia con el vencedor de Almirante Brown y San Martín de Tucumán. <br> <em>Source: Infobae</em></p>
-            </div>
-        </div>
-
-        <h2>Latest 24h World News</h2>
-        <div id="world-news">
-            <div class="news-item">
-                <h4><a href="https://www.reuters.com/world/europe/ukraine-forces-pushing-back-russian-assault-near-kharkiv-general-staff-says-2024-05-18/" target="_blank">Ukraine forces pushing back Russian assault near Kharkiv, general staff says</a></h4>
-                <p>Ukrainian forces are engaged in fierce fighting and pushing back a Russian assault near the northeastern city of Kharkiv, Ukraine's general staff said on Saturday. <br> <em>Source: Reuters</em></p>
-            </div>
-            <div class="news-item">
-                <h4><a href="https://www.reuters.com/world/europe/macron-urges-olympic-truce-all-conflicts-2024-05-18/" target="_blank">Macron urges Olympic truce for all conflicts</a></h4>
-                <p>French President Emmanuel Macron on Saturday called for an Olympic truce in all ongoing conflicts, including the wars in Ukraine and Gaza, from when the Paris 2024 Games open on July 26. <br> <em>Source: Reuters</em></p>
-            </div>
-            <div class="news-item">
-                <h4><a href="https://www.reuters.com/world/africa/sudan-rival-factions-accuse-each-other-starting-battle-el-fasher-2024-05-18/" target="_blank">Sudan rival factions accuse each other of starting battle for El Fasher</a></h4>
-                <p>Sudan's army and the paramilitary Rapid Support Forces (RSF) on Saturday accused each other of starting a battle for El Fasher, the last major city in the western Darfur region not under RSF control. <br> <em>Source: Reuters</em></p>
-            </div>
-            <div class="news-item">
-                <h4><a href="https://www.reuters.com/world/us/biden-condemns-rising-antisemitism-urges-holocaust-remembrance-2024-05-18/" target="_blank">Biden condemns rising antisemitism, urges Holocaust remembrance</a></h4>
-                <p>President Joe Biden on Saturday condemned a "ferocious surge" of antisemitism in the United States and worldwide, linking it to the Oct. 7 attack by Hamas on Israel and urging people to remember the horrors of the Holocaust. <br> <em>Source: Reuters</em></p>
-            </div>
-            <div class="news-item">
-                <h4><a href="https://www.reuters.com/world/us/biden-tells-morehouse-graduates-democracy-risk-2024-05-18/" target="_blank">Biden tells Morehouse graduates democracy is at risk</a></h4>
-                <p>President Joe Biden told graduates of Morehouse College on Saturday that their generation faces a choice between democracy and extremism, portraying himself as a defender of freedom at the historically Black institution in Atlanta. <br> <em>Source: Reuters</em></p>
-            </div>
-        </div>
-
-        <h2>Argentina Financial Updates</h2>
-        <div id="argentina-finance">
-            <div class="financial-update">
-                <h4>Dólar Blue</h4>
-                <ul>
-                    <li><strong>Current Price:</strong> Approx. ARS 1020 for purchase, ARS 1040 for sale</li>
-                    <li><strong>Recent Changes:</strong> Slight increase (+1.5%) in the last 24h</li>
-                    <li><strong>Projections:</strong> Market anticipates continued volatility, closely tied to economic policy announcements and local demand.</li>
-                </ul>
-            </div>
-            <div class="financial-update">
-                <h4>Riesgo País (JP Morgan EMBI+)</h4>
-                <ul>
-                    <li><strong>Current Value:</strong> Around 1400 basis points</li>
-                    <li><strong>Recent Changes:</strong> Relatively stable (+10 bps) in the last 24h</li>
-                    <li><strong>Projections:</strong> Expected to remain sensitive to fiscal reforms, debt restructuring progress, and global financial market sentiment towards emerging economies.</li>
-                </ul>
-            </div>
-        </div>
-
-        <h2>Bitcoin Update</h2>
-        <div id="bitcoin-update">
-            <div class="financial-update">
-                <h4>Bitcoin (BTC)</h4>
-                <ul>
-                    <li><strong>Current Price (USD):</strong> $67,050.23</li>
-                    <li><strong>24h Change:</strong> +0.25%</li>
-                    <li><strong>Sentiment:</strong> Neutral to cautiously optimistic. The market is consolidating after recent volatility, with investors monitoring macroeconomic factors.</li>
-                    <li><strong>Market Indicators:</strong> RSI is hovering around the neutral zone, suggesting a lack of strong momentum in either direction. Trading volume is moderate. Major support found around $65,000, with resistance near $70,000.</li>
-                    <li><strong>Possible Reasons for Movements:</strong> Influenced by broader macroeconomic data (e.g., US inflation, interest rate expectations), continued institutional interest via ETFs, and anticipation of long-term adoption, despite short-term fluctuations.</li>
-                </ul>
-            </div>
-        </div>
-
-        <h2>Most Important AI Developments (Past 24 hours)</h2>
-        <div id="ai-developments">
+        <div class="section">
+            <h2>Latest 24hs Most Important News for Argentina</h2>
             <ul>
-                <li><strong>Model Performance Updates:</strong> Several foundation models received minor updates focusing on efficiency and reducing inference costs, particularly for enterprise applications.</li>
-                <li><strong>Developer Tooling Enhancements:</strong> New libraries and frameworks were released to simplify the deployment and fine-tuning of AI models on various cloud platforms and edge devices.</li>
-                <li><strong>AI in Creative Industries:</strong> Continued advancements in text-to-image and text-to-video generation, with new tools offering greater control over artistic styles and narrative consistency.</li>
-                <li><strong>Ethical AI Discussions:</strong> Renewed focus on data privacy and security in AI training, with new guidelines proposed by several industry consortia aimed at responsible data usage.</li>
-                <li><strong>Sector-Specific Applications:</strong> Significant progress reported in leveraging AI for personalized medicine, with breakthroughs in identifying drug candidates and optimizing treatment plans based on patient-specific data.</li>
+                <li><strong>Presidential Runoff Developments:</strong> Both candidates, Sergio Massa and Javier Milei, are intensifying their campaigns ahead of the November 19th runoff election, with public debates and policy proposals dominating headlines.</li>
+                <li><strong>Economic Uncertainty:</strong> Analysts continue to scrutinize the economic proposals of both presidential candidates, with particular focus on inflation control, currency stability, and potential shifts in fiscal policy.</li>
+                <li><strong>Inflation Data:</strong> Recent reports show inflation remains a major concern, impacting consumer purchasing power and daily life, prompting government discussions on new measures.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Latest 24hs Most Important News for the World</h2>
+            <ul>
+                <li><strong>Gaza Conflict Intensifies:</strong> Military operations continue in the Gaza Strip, leading to a severe humanitarian crisis. International efforts are underway to secure aid delivery and negotiate a ceasefire.</li>
+                <li><strong>Ukraine War:</strong> Reports indicate continued fighting along the front lines in eastern Ukraine, with both sides reporting missile and drone attacks. Diplomatic discussions on further international support are ongoing.</li>
+                <li><strong>Global Economic Outlook:</strong> Central banks worldwide are closely watching inflation data, with speculation rising over future interest rate decisions and their potential impact on economic growth.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Financial Updates: Argentina</h2>
+            <h3>Dollar Blue (Dólar Blue)</h3>
+            <ul>
+                <li><strong>Current Price:</strong> ARS 900 (buy) / ARS 950 (sell)</li>
+                <li><strong>Recent Changes:</strong> Stable today, showing a slight decrease from previous day's highs around ARS 980 amidst post-first-round election speculation.</li>
+                <li><strong>Projections:</strong> High volatility is anticipated leading up to the second round of presidential elections. Projections suggest potential for further appreciation if economic uncertainty escalates, though intervention attempts may temper sharp movements.</li>
+            </ul>
+            <h3>Riesgo País (Country Risk)</h3>
+            <ul>
+                <li><strong>Current Price:</strong> 2,500 basis points</li>
+                <li><strong>Recent Changes:</strong> Up 50 basis points from yesterday, continuing an upward trend observed over the past week.</li>
+                <li><strong>Projections:</strong> Expected to remain elevated or increase further due to pre-election jitters, investor concerns over Argentina's future economic policies, and debt sustainability.</li>
+            </ul>
+            <h3>S&P Merval Index</h3>
+            <ul>
+                <li><strong>Current Price:</strong> 680,000 points</li>
+                <li><strong>Recent Changes:</strong> Down 1.5% today, contributing to a mixed performance over the past week.</li>
+                <li><strong>Sentiment:</strong> Cautious. Investors are primarily weighing the potential impacts of the upcoming presidential runoff election on the local economy and corporate earnings.</li>
+                <li><strong>Market Indicators:</strong> Trading volume is slightly below average. Technical indicators suggest a period of consolidation.</li>
+                <li><strong>Possible Reasons for Movements:</strong> General uncertainty regarding the economic platforms of the presidential candidates. Some profit-taking after a strong rally in previous months. Minor influence from global market sentiment.</li>
+                <li><strong>Projections:</strong> Significant volatility is expected in the short term until the election outcome is clear. Long-term performance will be heavily dependent on the economic reforms and stability policies of the incoming administration.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Most Important AI Developments (Past 24 hours)</h2>
+            <ul>
+                <li><strong>DeepMind Advances Protein Folding:</strong> Google DeepMind announced new progress in protein folding prediction, leveraging a novel large language model architecture to achieve higher accuracy and speed.</li>
+                <li><strong>OpenAI API Enhancements:</strong> OpenAI rolled out minor API updates for GPT-3.5 turbo, focusing on improving latency for enterprise applications and introducing more cost-efficient token usage.</li>
+                <li><strong>New Open-Source LLM Framework:</strong> "NeuroPilot," a new open-source project, launched on GitHub. It provides a framework designed to facilitate local large language model fine-tuning on consumer-grade hardware.</li>
+                <li><strong>Microsoft Copilot Integrations:</strong> Microsoft unveiled further integrations of its Copilot AI into various enterprise software suites, aiming to enhance productivity features across applications like Teams and Excel.</li>
             </ul>
         </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to get the current time in a specific timezone
+            function getArgentinaDateTime() {
+                const options = {
+                    timeZone: 'America/Argentina/Buenos_Aires',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                };
+                const formatter = new Intl.DateTimeFormat('en-US', options);
+                return formatter.format(new Date());
+            }
+
+            document.getElementById('argentinaDateTime').textContent = getArgentinaDateTime();
+        });
+    </script>
 </body>
 </html>
 ```
