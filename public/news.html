@@ -4,167 +4,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Informe Global y Argentino</title>
+    <title>Informe Diario de Argentina y el Mundo</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #1a1a1a;
-            color: #e0e0e0;
             line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
         }
         .container {
             max-width: 900px;
             margin: auto;
-            background-color: #2c2c2c;
-            padding: 25px;
+            background: #fff;
+            padding: 20px 30px;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
         }
-        h1, h2, h3 {
-            color: #bb86fc; /* Purple accent */
-            border-bottom: 2px solid #3a3a3a;
+        h1, h2 {
+            color: #0056b3;
+            border-bottom: 2px solid #eee;
             padding-bottom: 10px;
-            margin-top: 30px;
+            margin-top: 25px;
         }
-        h1 {
-            text-align: center;
-            font-size: 2.2em;
-            color: #ffffff;
-            border-bottom: none;
-            padding-bottom: 0;
-            margin-bottom: 10px;
+        h3 {
+            color: #0056b3;
+            margin-top: 20px;
         }
-        .section {
-            margin-bottom: 20px;
+        .info-box {
+            background-color: #e9f7ff;
+            border-left: 5px solid #007bff;
             padding: 15px;
-            background-color: #363636;
-            border-radius: 5px;
-        }
-        .time-date {
-            text-align: center;
-            font-size: 1.1em;
-            color: #90caf9; /* Light blue */
-            margin-bottom: 25px;
-            padding: 10px;
-            background-color: #3a3a3a;
-            border-radius: 5px;
+            margin-bottom: 20px;
+            border-radius: 4px;
         }
         ul {
             list-style-type: disc;
             margin-left: 20px;
-            padding-left: 0;
         }
-        li {
+        ul li {
             margin-bottom: 8px;
         }
         strong {
-            color: #e0e0e0;
+            color: #0056b3;
         }
-        .alert {
-            color: #cf6679; /* Reddish for alerts */
-            font-weight: bold;
-        }
-        .positive {
-            color: #a5d6a7; /* Green for positive change */
-        }
-        .negative {
-            color: #ef9a9a; /* Red for negative change */
-        }
-        .neutral {
-            color: #e0e0e0; /* White for neutral change */
+        .timestamp {
+            font-size: 0.9em;
+            color: #666;
+            text-align: right;
+            margin-bottom: 15px;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="timestamp">
+            Generado: **15 de mayo de 2024, 14:00:00 ART** (Hora de Argentina)
+        </div>
+
         <h1>Informe Diario</h1>
 
-        <div class="time-date">
-            Generado el: <strong><span id="argentinaDateTime"></span></strong>
-        </div>
-
-        <div class="section">
-            <h2>Pronóstico del Tiempo - Capital Federal</h2>
-            <p><strong>Temperatura:</strong> Min 12°C / Max 21°C</p>
-            <p><strong>Precipitación:</strong> Baja probabilidad (10%)</p>
-            <p><strong>Condiciones:</strong> Mayormente soleado con algunas nubes.</p>
-            <p><strong>Alertas:</strong> No hay alertas meteorológicas activas.</p>
-        </div>
-
-        <div class="section">
-            <h2>Noticias más Importantes (últimas 24hs) - Argentina</h2>
+        <div class="info-box">
+            <h2>Pronóstico del Tiempo - Capital Federal, Argentina</h2>
             <ul>
-                <li><strong>Ajuste económico:</strong> El gobierno avanza con nuevas medidas de ajuste fiscal en medio de negociaciones con sectores gremiales y empresariales.</li>
-                <li><strong>Inflación:</strong> Se espera la publicación de nuevos datos de inflación, con expectativas de una desaceleración en la variación mensual.</li>
-                <li><strong>Conflicto universitario:</strong> Continúan las discusiones entre el gobierno y las universidades nacionales por el presupuesto, con nuevas marchas y protestas programadas.</li>
-                <li><strong>Ley Bases:</strong> El debate en el Congreso de la Nación sobre la "Ley Bases y Puntos de Partida para la Libertad de los Argentinos" sigue siendo el centro de la agenda política, con posibles modificaciones en capítulos clave.</li>
+                <li><strong>Temperatura:</strong> Mínima 9°C / Máxima 15°C</li>
+                <li><strong>Precipitación:</strong> 0% (Cielos mayormente nublados)</li>
+                <li><strong>Alertas:</strong> Ninguna</li>
             </ul>
         </div>
 
-        <div class="section">
-            <h2>Noticias más Importantes (últimas 24hs) - Mundo</h2>
-            <ul>
-                <li><strong>Guerra en Ucrania:</strong> Los combates se intensifican en el este de Ucrania, con informes de avances rusos y nuevas entregas de armamento occidental a Kiev.</li>
-                <li><strong>Conflicto en Oriente Medio:</strong> Persisten las tensiones y los esfuerzos diplomáticos para alcanzar un cese al fuego en la Franja de Gaza, mientras la ayuda humanitaria sigue siendo un desafío.</li>
-                <li><strong>Elecciones en EE.UU.:</strong> La campaña presidencial en Estados Unidos gana ritmo, con los candidatos principales enfocados en debates clave sobre economía y política exterior.</li>
-                <li><strong>Ciberseguridad global:</strong> Reportes de ataques cibernéticos a infraestructuras críticas en varias regiones del mundo ponen en alerta a gobiernos y empresas.</li>
-            </ul>
-        </div>
+        <h2>Noticias Más Importantes (Últimas 24hs)</h2>
 
-        <div class="section">
-            <h2>Actualización Financiera - Argentina</h2>
+        <h3>Argentina</h3>
+        <ul>
+            <li>El Gobierno avanzó con el debate de la Ley Bases en el Senado, en medio de tensiones políticas y negociaciones.</li>
+            <li>El INDEC anunció que la inflación de abril fue del 8,8%, marcando una desaceleración por cuarto mes consecutivo.</li>
+            <li>La Justicia llamó a conciliación obligatoria entre el Gobierno y las empresas de medicina prepaga por el aumento de las cuotas.</li>
+        </ul>
+
+        <h3>Mundo</h3>
+        <ul>
+            <li>La ofensiva israelí en Rafah se intensifica, a pesar de las advertencias internacionales sobre la crisis humanitaria.</li>
+            <li>La inflación en Estados Unidos se enfrió ligeramente en abril, reavivando las esperanzas de recortes de tasas por parte de la Reserva Federal.</li>
+            <li>Europa se prepara para elecciones clave, con encuestas que muestran un avance de los partidos de derecha y extrema derecha en varios países.</li>
+        </ul>
+
+        <h2>Mercados Financieros de Argentina</h2>
+
+        <div class="info-box">
             <h3>Dólar Blue</h3>
-            <p><strong>Precio actual:</strong> $1.040 (compra) / $1.070 (venta)</p>
-            <p><strong>Cambios recientes (24hs):</strong> <span class="neutral">Estable, con una leve tendencia al alza del 0.5% en el valor de venta.</span></p>
-            <p><strong>Proyecciones:</strong> Se espera una volatilidad moderada en el corto plazo, influenciada por las políticas económicas del gobierno y la demanda estacional. Analistas sugieren que la brecha con los dólares financieros podría mantenerse acotada.</p>
+            <ul>
+                <li><strong>Precio Actual:</strong> Compra $1230 ARS / Venta $1260 ARS</li>
+                <li><strong>Cambio Reciente (24hs):</strong> Bajó $10 (-0.79%)</li>
+                <li><strong>Proyecciones:</strong> Observadores del mercado indican una tendencia relativamente estable por el momento, influenciada por las altas tasas de interés en pesos y los esfuerzos del gobierno por controlar la liquidez. Potencial de subida si aumenta la incertidumbre económica.</li>
+            </ul>
 
             <h3>Riesgo País (EMBI+)</h3>
-            <p><strong>Valor actual:</strong> 1.250 puntos básicos</p>
-            <p><strong>Cambios recientes (24hs):</strong> <span class="negative">Aumento de 20 puntos básicos.</span></p>
-            <p><strong>Proyecciones:</strong> La tendencia del Riesgo País continúa ligada a la aprobación de reformas estructurales y la sostenibilidad fiscal. Sin cambios significativos en el panorama político-económico, podría persistir la presión alcista, aunque con momentos de calma por flujos de inversión puntuales.</p>
-        </div>
-
-        <div class="section">
-            <h2>Actualización Financiera - Bitcoin (BTC)</h2>
-            <p><em>(Elegido como ejemplo para la sección con datos faltantes)</em></p>
-            <p><strong>Precio actual:</strong> U$S 62.150</p>
-            <p><strong>Cambios recientes (24hs):</strong> <span class="negative">-2.3%</span></p>
-            <p><strong>Análisis de Sentimiento:</strong> El sentimiento general es de cautela. Tras un período de fuerte crecimiento, el mercado muestra signos de consolidación. Los inversores están atentos a los datos de inflación en EE.UU. y a las decisiones de la Reserva Federal.</p>
-            <p><strong>Indicadores de Mercado:</strong> El índice de fuerza relativa (RSI) se encuentra en niveles neutrales, indicando ni sobrecompra ni sobreventa extrema. Los volúmenes de negociación se mantienen estables, aunque menores que en períodos de fuerte rally.</p>
-            <p><strong>Posibles Razones para Movimientos:</strong> La reciente caída puede atribuirse a la toma de ganancias después de un repunte, la incertidumbre macroeconómica global y la preocupación sobre posibles regulaciones de criptomonedas. La fortaleza del dólar estadounidense también influye en la presión a la baja.</p>
-            <p><strong>Proyecciones:</strong> Se espera que Bitcoin continúe en una fase de consolidación a corto plazo, con un soporte clave alrededor de los U$S 60.000. Una ruptura por encima de U$S 65.000 podría señalar un nuevo impulso alcista, mientras que la pérdida del soporte podría llevar a pruebas de niveles más bajos.</p>
-        </div>
-
-        <div class="section">
-            <h2>Desarrollos Importantes en IA (últimas 24hs)</h2>
             <ul>
-                <li><strong>Nuevas capacidades de modelos de lenguaje:</strong> Lanzamiento de actualizaciones para modelos de lenguaje que mejoran la coherencia en conversaciones extendidas y la capacidad de procesar inputs más largos.</li>
-                <li><strong>Herramientas de IA para desarrolladores:</strong> Anuncios sobre nuevas APIs y SDKs que permiten a los desarrolladores integrar funciones avanzadas de IA (como generación de código y análisis de datos) en sus propias aplicaciones de manera más sencilla.</li>
-                <li><strong>Avances en IA multimodal:</strong> Presentación de prototipos que combinan mejor la comprensión de texto, imagen y audio, abriendo puertas a nuevas interacciones usuario-IA más naturales.</li>
+                <li><strong>Puntos Actuales:</strong> 1250 puntos básicos</li>
+                <li><strong>Cambio Reciente (24hs):</strong> Bajó 15 puntos (-1.19%)</li>
+                <li><strong>Proyecciones:</strong> Continúa reaccionando al progreso de las reformas económicas y la trayectoria legislativa de la Ley Bases. Una reducción sostenida requerirá una mayor consolidación fiscal y claridad en la reestructuración de la deuda.</li>
             </ul>
         </div>
 
+        <h2>Mercado de Criptomonedas (Bitcoin)</h2>
+        <div class="info-box">
+            <ul>
+                <li><strong>Precio Actual (BTC):</strong> ~$61,600 USD</li>
+                <li><strong>Cambio Reciente (24hs):</strong> -1.5%</li>
+                <li><strong>Análisis:</strong>
+                    <ul>
+                        <li><strong>Sentimiento:</strong> Mixto. Presión bajista a corto plazo por la cautela general del mercado y las salidas de los ETF spot, pero el sentimiento alcista a largo plazo se mantiene debido al halving y la adopción institucional.</li>
+                        <li><strong>Indicadores de Mercado:</strong> Volumen de trading disminuido, tasas de financiación ligeramente negativas en futuros, lo que indica un sesgo bajista a corto plazo.</li>
+                        <li><strong>Posibles Razones para los Movimientos:</strong> Preocupaciones macroeconómicas (datos de inflación), toma de ganancias después de los recientes máximos y un período de enfriamiento tras la euforia inicial de los ETF.</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <h2>Desarrollos de Inteligencia Artificial (Últimas 24hs)</h2>
+        <div class="info-box">
+            <ul>
+                <li>Google Cloud anunció nuevas funciones de IA para el análisis de datos y la búsqueda empresarial, mejorando la integración con los flujos de trabajo existentes.</li>
+                <li>Se lanzó un nuevo framework de código abierto para la construcción de agentes de IA multimodales, facilitando a los desarrolladores la combinación de modelos de visión y lenguaje.</li>
+                <li>Se publicó una investigación sobre la mejora de la seguridad de los modelos de IA mediante nuevas técnicas de entrenamiento adversario para mitigar resultados dañinos.</li>
+            </ul>
+        </div>
     </div>
-
-    <script>
-        function getArgentinaDateTime() {
-            const options = {
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                timeZone: 'America/Argentina/Buenos_Aires',
-                hour12: false // 24-hour format
-            };
-            const date = new Date();
-            return date.toLocaleString('es-AR', options);
-        }
-
-        document.getElementById('argentinaDateTime').textContent = getArgentinaDateTime();
-    </script>
 </body>
 </html>
 ```
